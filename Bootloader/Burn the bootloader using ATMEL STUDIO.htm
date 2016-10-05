@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!-- saved from url=(0120)http://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio -->
+<html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" lang="en-gb" dir="ltr" slick-uniqueid="3" class="js csstransforms csstransforms3d csstransitions uk-notouch" style="overflow-y: auto;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="http://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio">--><base href=".">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ArduinoOrg">
+<meta name="twitter:creator" content="@ArduinoOrg">
+<meta name="twitter:title" content="Burn the bootloader using ATMEL STUDIO">
+<meta name="twitter:description" content="Arduino Burn the bootloader using ATMEL STUDIO">
+<meta name="twitter:image:src" content="http://www.arduino.org/images/marchio_arduino.jpg">
+<meta property="og:type" content="article">
+<meta name="og:site_name" content="Arduino.org">
+<meta name="fb:app_id" content="APvXPYwb8Yq">
+<meta name="fb:admins" content="779130738791047">
+<meta property="og:title" content="Burn the bootloader using ATMEL STUDIO">
+<meta property="og:description" content="Arduino Burn the bootloader using ATMEL STUDIO">
+<meta property="og:image" content="http://www.arduino.org/images/marchio_arduino.jpg">
+<meta name="title" content="Burn the bootloader using ATMEL STUDIO">
+<meta property="og:url" content="http://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.5, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="HandheldFriendly" content="true">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/templates/jv-capitol/icon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Arduino Burn the bootloader using ATMEL STUDIO">
+<title>Burn the bootloader using ATMEL STUDIO</title>
+<link href="http://www.arduino.org/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio" rel="canonical">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-57x57.png" rel="apple-touch-icon-precomposed">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-60x60.png" rel="apple-touch-icon-precomposed" sizes="60x60">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-76x76.png" rel="apple-touch-icon-precomposed" sizes="76x76">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-120x120.png" rel="apple-touch-icon-precomposed" sizes="120x120">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-152x152.png" rel="apple-touch-icon-precomposed" sizes="152x152">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/apple-icon-180x180.png" rel="apple-touch-icon-precomposed" sizes="180x180">
+<link href="http://www.arduino.org/templates/jv-capitol/icon/manifest.json" rel="manifest">
+<link href="http://www.arduino.org/component/search/?Itemid=432&amp;id=1049:how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio&amp;format=opensearch" rel="search" title="Search Arduino Open Source Hardware and Software for electronic projects " type="application/opensearchdescription+xml">
+<link href="http://www.arduino.org/templates/jv-capitol/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link rel="stylesheet" type="text/css" href="./Burn the bootloader using ATMEL STUDIO_files/3b426256b931c8a049aa3eb590a06d9e.css">
+<link href="https://plus.google.com/+ArduinoOrgPage" rel="publisher">
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+<body class="layout-default ltr inner_page advanced-guides 1 body-wide custom item  off-slile sm-container"><div class="sm-pusher"><div class="sm-content"><div class="sm-content-inner">
+<div id="wrapper">
+<div id="mainsite">
+<span class="flexMenuToggle"></span>
+<header id="block-header" class="headroom headroom--not-top headroom--unpinned">
+<div class="header">
+<div class="header-content clearfix">
+<a class="flexMenuToggle btn btn-default btn-outline btn-sm pull-right" href="JavaScript:void(0);"><span></span><span></span><span></span></a>
+<div class="header-logo pull-left">
+<a id="logo" class="logo-image" href="http://www.arduino.org/" title="Arduino Open Source Hardware and Software for electronic projects ">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/arduino_official_Logo.png" alt="Arduino Open Source Hardware and Software for electronic projects ">
+</a>
+</div>
+<div class="header-search pull-right">
+<div class="position position-search">
+<button class="btn btn-search-modal btn-primary" data-toggle="modal" data-target="#search-modal-213"><i class="fa fa-search"></i></button>
+
+</div>
+</div>
+<div class="block-mainnav-wapper pull-right">
+
+<div id="block-mainnav" class="block-mainnav" data-responsive="992">
+<div class="position position-menu">
+<ul id="fxmenu87" class="menu fxmenu  nav-pills"><li id="fx-item101" class="fx-item1 level1   fxsubmenu">
+<a href="http://www.arduino.org/" data-hover="Home" class="level1" title="Welcome to the Arduino official website"><span class="fx-title">Home</span></a>
+</li>
+<li id="fx-item103" class="fx-item2 level1 hasChild  fxsubmenu">
+<span class="iconsubmenu"></span><span data-hover="Products" class="separator level1"><span class="fx-title">Products</span></span>
+
+<div class="fx-subitem fxcolumns  cols1"><div class="insubitem clearfix"><ul class="fxcolumn column1 clearfix">
+<li id="fx-item266" class="fx-item1 level2   fxsubmenu">
+<a href="http://www.arduino.org/products/boards" data-hover="Boards" class="levelsub level2" title="Discover Arduino boards"><span class="fx-title">Boards</span></a>
+</li>
+<li id="fx-item268" class="fx-item2 level2   fxsubmenu">
+<a href="http://www.arduino.org/products/shields" data-hover="Shields" class="levelsub level2" title="Discover Arduino shields"><span class="fx-title">Shields</span></a>
+</li>
+<li id="fx-item290" class="fx-item3 level2   fxsubmenu">
+<a href="http://www.arduino.org/products/kits" data-hover="Kits" class="levelsub level2" title="Discover Arduino Kits"><span class="fx-title">Kits</span></a>
+</li>
+<li id="fx-item291" class="fx-item4 level2   fxsubmenu">
+<a href="http://www.arduino.org/products/accessories" data-hover="Accessories" class="levelsub level2" title="Discover Arduino Accessories"><span class="fx-title">Accessories</span></a>
+</li>
+<li id="fx-item315" class="fx-item5 level2   fxsubmenu">
+<a href="http://www.arduino.org/products/tinkerkit" data-hover="TinkerKit" class="levelsub level2" title="Discover Arduino TinkerKit"><span class="fx-title">TinkerKit</span></a>
+</li>
+</ul></div></div></li>
+<li id="fx-item321" class="fx-item3 level1 hasChild  fxsubmenu">
+<span class="iconsubmenu"></span><span data-hover="Buy" class="separator level1"><span class="fx-title">Buy</span></span>
+
+<div class="fx-subitem fxcolumns  cols1"><div class="insubitem clearfix"><ul class="fxcolumn column1 clearfix">
+<li id="fx-item104" class="fx-item1 level2   fxsubmenu">
+<a href="http://www.arduino.org/buy/distributors" data-hover="Find Distributors" class="levelsub level2" title="See the complete list of Arduino distributors"><span class="fx-title">Find Distributors</span></a>
+</li>
+<li id="fx-item277" class="fx-item2 level2   fxsubmenu">
+<a href="http://world.arduino.org/en" data-hover="Online Store" class="storelink levelsub level2" title="Visit our Arduino store " target="_blank"><span class="fx-title">Online Store</span></a>
+</li>
+</ul></div></div></li>
+<li id="fx-item275" class="fx-item4 level1   fxsubmenu">
+<a href="http://www.arduino.org/downloads" data-hover="Download" class="level1" title="Discover more about Arduino software"><span class="fx-title">Download</span></a>
+</li>
+<li id="fx-item322" class="fx-item5 level1 hasChild  fxsubmenu active">
+<span class="iconsubmenu"></span><span data-hover="Learning" class="separator level1"><span class="fx-title">Learning</span></span>
+
+<div class="fx-subitem fxcolumns  cols1"><div class="insubitem clearfix"><ul class="fxcolumn column1 clearfix">
+<li id="fx-item323" class="fx-item1 level2   fxsubmenu">
+<a href="http://www.arduino.org/learning/getting-started" data-hover="Getting Started" class="levelsub level2"><span class="fx-title">Getting Started</span></a>
+</li>
+<li id="fx-item324" class="fx-item2 level2 hasChild  fxsubmenu active">
+<span class="iconsubmenu"></span><a href="http://www.arduino.org/learning/tutorials" data-hover="Tutorials" class="levelsub level2"><span class="fx-title">Tutorials</span></a>
+
+<div class="fx-subitem fxcolumns  cols1"><div class="insubitem clearfix"><ul class="fxcolumn column1 clearfix">
+<li id="fx-item430" class="fx-item1 level3   fxsubmenu">
+<a href="http://www.arduino.org/learning/tutorials/ide-examples" data-hover="IDE Examples" class="levelsub level3"><span class="fx-title">IDE Examples</span></a>
+</li>
+<li id="fx-item431" class="fx-item2 level3   fxsubmenu">
+<a href="http://www.arduino.org/learning/tutorials/boards-tutorials" data-hover="Boards Tutorials" class="levelsub level3"><span class="fx-title">Boards Tutorials</span></a>
+</li>
+<li id="fx-item432" class="fx-item3 level3   fxsubmenu active">
+<a href="http://www.arduino.org/learning/tutorials/advanced-guides" data-hover="Advanced Guides" class="levelsub level3"><span class="fx-title">Advanced Guides</span></a>
+</li>
+<li id="fx-item433" class="fx-item4 level3   fxsubmenu">
+<a href="http://www.arduino.org/learning/tutorials/hackings" data-hover="Hackings" class="levelsub level3"><span class="fx-title">Hackings</span></a>
+</li>
+</ul></div></div></li>
+<li id="fx-item325" class="fx-item3 level2   fxsubmenu">
+<a href="http://www.arduino.org/learning/reference" data-hover="Reference" class="levelsub level2"><span class="fx-title">Reference</span></a>
+</li>
+<li id="fx-item328" class="fx-item4 level2   fxsubmenu">
+<a href="http://www.arduino.org/learning/faq" data-hover="FAQ" class="levelsub level2"><span class="fx-title">FAQ</span></a>
+</li>
+</ul></div></div></li>
+<li id="fx-item327" class="fx-item6 level1   fxsubmenu">
+<a href="http://www.arduino.org/forums" data-hover="Forum" class="level1"><span class="fx-title">Forum</span></a>
+</li>
+<li id="fx-item173" class="fx-item7 level1   fxsubmenu">
+<a href="http://www.arduino.org/makers" data-hover="Makers" class="level1" title="Discover projects made with Arduino boards"><span class="fx-title">Makers</span></a>
+</li>
+<li id="fx-item171" class="fx-item8 level1   fxsubmenu">
+<a href="http://www.arduino.org/blog" data-hover="Blog" class="level1" title="Read the Arduino blog"><span class="fx-title">Blog</span></a>
+</li>
+<li id="fx-item278" class="fx-item9 level1   fxsubmenu">
+<a href="http://www.arduino.org/foundation" data-hover="Foundation" class="foundation level1"><span class="fx-title">Foundation</span></a>
+</li>
+<li id="fx-item421" class="fx-item10 level1 hasChild  fxsubmenu">
+<span class="iconsubmenu"></span><span data-hover="Access" class="separator level1 login"><span class="fx-title">Access</span></span>
+
+<div class="fx-subitem fxcolumns  cols1"><div class="insubitem clearfix"><ul class="fxcolumn column1 clearfix">
+<li id="fx-item422" class="fx-item1 level2   fxsubmenu">
+<div class="jv-module">
+<h3 class="title-module ">
+<span>Login</span>
+</h3>
+<div class="contentmod clearfix">
+<form action="http://www.arduino.org/login/login" method="post" id="login-form" class="form-inline cbLoginForm">
+<input type="hidden" name="option" value="com_comprofiler">
+<input type="hidden" name="view" value="login">
+<input type="hidden" name="op2" value="login">
+<input type="hidden" name="return" value="B:aHR0cDovL3d3dy5hcmR1aW5vLm9yZy9mb3J1bXM=">
+<input type="hidden" name="message" value="0">
+<input type="hidden" name="loginfrom" value="loginmodule">
+<input type="hidden" name="cbsecuritym3" value="cbm_63f31310_3f803335_e36fd754dc4730f8847e9c64df41fb28">
+<div class="userdata">
+<div id="form-login-username" class="control-group">
+<div class="controls">
+<input id="modlgn-username" type="text" name="username" class="input-medium" size="24" placeholder="Username">
+</div>
+</div>
+<div id="form-login-password" class="control-group">
+<div class="controls">
+<input id="modlgn-passwd" type="password" name="passwd" class="input-medium" size="24" placeholder="Password">
+</div>
+</div>
+<div id="form-login-submit" class="control-group">
+<div class="controls">
+<button type="submit" name="Submit" class="btn btn-primary">
+																			Log in											</button>
+</div>
+</div>
+</div>
+<ul id="form-login-links" class="unstyled">
+<li id="form-login-forgot">
+<a href="http://www.arduino.org/forgot-login/lostpassword">
+																			Forgot Login?											</a>
+</li>
+<li id="form-login-register">
+<a href="http://www.arduino.org/join-now-the-arduino-community/registers">
+																			Sign up											</a>
+</li>
+</ul>
+</form>
+</div>
+</div>
+</li>
+</ul></div></div></li></ul></div>
+<!-- <a class="flexMenuToggle" href="JavaScript:void(0);" ></a>-->
+</div></div>
+</div>
+</div>
+</header>
+<div class="position position-breadcrumb">
+<div class="breadcrumb-wrapper clearfix pt-120 pb-120 pl-90 pr-90 pt-lg-100 pb-lg-100 pl-lg-80 pr-lg-80 pt-md-80 pb-md-80 pl-md-40 pr-md-40 pt-sm-50 pb-sm-50 pl-sm-20 pr-sm-20 " data-speed="" style="background-image: url(&#39;/images/slide/ruota_starterkit.jpg&#39;); background-position: center; background-size: cover;">
+<!--<h1 class="page-heading pull-left">Burn the bootloader using ATMEL STUDIO</h1>-->
+<ul class="breadcrumb pull-right">
+<li><span>Learning</span></li><li><a href="http://www.arduino.org/learning/tutorials" class="pathway">Tutorials</a></li><li><a href="http://www.arduino.org/learning/tutorials/advanced-guides" class="pathway">Advanced Guides</a></li><li><a href="http://www.arduino.org/learning/tutorials/advanced-guides/content/arduino-m0" class="pathway">Arduino M0 Advanced Guides</a></li><li class="active"><span>Burn the bootloader using ATMEL STUDIO</span></li>	</ul>
+</div>
+</div>
+<section id="contenttop" class="contenttop">
+<div class="container">
+<div class="block blockequalize equal-column  row">
+<div class="col-md-12 col-sm-12"><div class="position position-contenttop-1">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<div class="sm-parent">
+</div>
+</div>
+</div>
+</div></div></div>
+</div>
+</section>
+<section id="block-main">
+<div class="container">
+<div class="row">
+<div id="main-content" class="col-md-9 content-right main-content">
+<div id="content">
+<div id="system-message-container">
+</div>
+<div class="auto-anchor-start-marker" style="display:none"></div><style>a.auto_anchor{position:relative;top:-80px}</style>
+<!-- Start K2 Item Layout -->
+<span id="startOfPageId1049"></span>
+<div id="k2Container" class="itemView">
+<!-- Plugins: BeforeDisplay -->
+<!-- K2 Plugins: K2BeforeDisplay -->
+<div class="itemHeader">
+<!-- Item title -->
+<h1 class="getting_itemTitle">
+			
+	  	Burn the bootloader using ATMEL STUDIO
+	  	
+	  </h1>
+</div>
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<div class="itemToolbar">
+<ul>
+</ul>
+<div class="clr"></div>
+</div>
+<div class="itemBody">
+<!-- Plugins: BeforeDisplayContent -->
+<div class="b2jsocial_parent"><ul class="b2jsocial"><li class="f preset1"><a class="preset1" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio" target="_blank"><span class="text">share</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="t preset1"><a class="preset1" href="http://twitter.com/intent/tweet?text=Burn%20the%20bootloader%20using%20ATMEL%20STUDIO&amp;url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio&amp;via=ArduinoOrg" target="_blank"><span class="text">tweet</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="g preset1"><a class="preset1" href="http://plus.google.com/share?url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio" target="_blank"><span class="text">plus</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="l preset1"><a class="preset1" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio&amp;title=Burn%20the%20bootloader%20using%20ATMEL%20STUDIO" target="_blank"><span class="text">share</span><span class="background"></span><span class="social_count hide">-1</span></a></li></ul></div>
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<!-- Item fulltext -->
+<div class="itemFullText">
+<h3 id="Burning_Bootloader_procedure">Burning Bootloader procedure</h3>
+<p>To properly write the bootloader on your&nbsp;Arduino M0, you need to use a programmer, for example the&nbsp;Atmel-ICE, and the tool provided by ATMEL&nbsp;AtmelStudio.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/atmel-ice.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/atmel-ice.jpg" alt="Atmel ICE programmer">&nbsp;<br></a><br>Follow these steps:<br>- Plug in one side of the SWD connector to SAM port on Atmel ICE programmer and an other side to SWD header on Arduino M0.<br> - Connect both the devices to PC via USB cables, as shown in the below picture.<br>N.B:<br>Do to coincide the connector red wire with the SWD Header white point on Arduino M0 .<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/img_20160212_110008.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/img_20160212_110008.jpg" alt="Atmel ICE: SAM port">&nbsp;</a><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/connections.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/connections.jpg" alt="Connect the board to the Atmel ICE">&nbsp;<br></a><br>- Open AtmelStudio tool, you can download it from here (<a href="http://www.atmel.com/tools/ATMELSTUDIO.aspx" target="_blank" rel="external nofollow">here</a>);<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 1.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 1.jpg" alt="Atmel Studio 6">&nbsp;</a>
+<br>- Go to&nbsp;Tools -&gt; Device Programming&nbsp;or press the keys&nbsp;CTRL + SHIFT + P.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 2.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 2.jpg" alt="Select the Device Programming menu">&nbsp;</a>
+<br>- Select&nbsp;Atmel-ICE&nbsp;in Tool.<br>- Select&nbsp;ATSAMD21G18A&nbsp;in Device.<br>- Select&nbsp;SWD&nbsp;in Interface.<br>- Press&nbsp;Apply.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/3.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/3.jpg" alt="Device Programming">&nbsp;</a><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/4.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/4.jpg" alt="Interface settings of Device Programming menu">&nbsp;</a><br><br>- Go to&nbsp;Memories<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/5.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/5.jpg" alt="Device Programming: Memories">&nbsp;</a><br>- Click&nbsp;Erase now&nbsp;and, if all has gone as it should, in the log console you will see&nbsp;OK.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 6.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 6.jpg" alt="Device Programming: Erase now">&nbsp;</a>
+<br>- Go to&nbsp;Fuses.<br>- Ensure that the&nbsp;NVMCTRL_BOOTPROT&nbsp;is equal to&nbsp;0x07, otherwise set this value by double clicking on the value.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 7.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/Arduino Atmel Studio 7.jpg" alt="Device Programming: Fuses">&nbsp;</a>
+<br>- Press&nbsp;Program. In the log console,&nbsp;OK&nbsp;will be showed as output if everything has run smoothly.<br>- Go to&nbsp;Memories<br>- Select the file to write&nbsp;Bootloader_board_Vxxx.hex, this file is placed into&nbsp;...\arduino-1.7.8\hardware\arduino\samd\bootloaders\zero&nbsp;folder.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/8.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/8.jpg" alt="Select the bootloader">&nbsp;<br></a><br>- Click&nbsp;Program, in the log console you will see&nbsp;OK.<br><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/9a.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/9a.jpg" alt="Device Programming: burn the bootloader">&nbsp;</a><br>
+<a href="./Burn the bootloader using ATMEL STUDIO_files/9.jpg" rel="box[g]"><img src="./Burn the bootloader using ATMEL STUDIO_files/9.jpg" alt="Bootloader burned">&nbsp;</a><br><br>- Now you have burned the bootloader. Try the board using upload a simple sketch for example the blink using the Arduino IDE, you can download it<a href="http://www.arduino.org/software" target="_blank" rel="external nofollow">&nbsp;here</a>.</p> </div>
+<div class="clr"></div>
+<!-- Plugins: AfterDisplayContent -->
+<div class="b2jsocial_parent"><ul class="b2jsocial"><li class="f preset1"><a class="preset1" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio" target="_blank"><span class="text">share</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="t preset1"><a class="preset1" href="http://twitter.com/intent/tweet?text=Burn%20the%20bootloader%20using%20ATMEL%20STUDIO&amp;url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio&amp;via=ArduinoOrg" target="_blank"><span class="text">tweet</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="g preset1"><a class="preset1" href="http://plus.google.com/share?url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio" target="_blank"><span class="text">plus</span><span class="background"></span><span class="social_count hide">-1</span></a></li><li class="l preset1"><a class="preset1" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.arduino.org%2Flearning%2Ftutorials%2Fadvanced-guides%2Fhow-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio&amp;title=Burn%20the%20bootloader%20using%20ATMEL%20STUDIO" target="_blank"><span class="text">share</span><span class="background"></span><span class="social_count hide">-1</span></a></li></ul></div>
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<div class="clr"></div>
+</div>
+<div class="itemLinks">
+<div class="clr"></div>
+</div>
+<div class="clr"></div>
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+<!--
+		<div class="itemBackToTop">
+		<a class="k2Anchor" href="/learning/tutorials/advanced-guides/how-to-burn-the-bootloader-on-an-arduino-m0-using-atmel-studio#startOfPageId1049">
+			back to top		</a>
+	</div>
+	-->
+<div class="clr"></div>
+</div>
+<!-- End K2 Item Layout -->
+<!-- JoomlaWorks "K2" (v2.7.0) | Learn more about K2 at http://getk2.org -->
+<div class="auto-anchor-stop-marker" style="display:none"></div>
+</div>
+</div>
+<aside id="sidebar-b" class="sidebar col-md-3 sidebar-right">
+<div class="sidebar-inner">
+<div class="position position-right-1">
+<div class="jv-module">
+<h3 class="title-module ">
+<span>TUTORIALS</span>
+</h3>
+<div class="contentmod clearfix">
+<table class="tutorials-table-right">
+<tbody>
+<tr>
+<td class="icons-td-right"><a href="http://www.arduino.org/learning/tutorials/ide-examples"><img src="./Burn the bootloader using ATMEL STUDIO_files/ide_examples.gif" alt="Arduino ide examples" width="36" height="36"></a></td>
+<td class="link-td-right"><a href="http://www.arduino.org/learning/tutorials/ide-examples" class="tutorials-links-right">IDE EXAMPLES</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="tutorials-table-right">
+<tbody>
+<tr>
+<td class="icons-td-right"><a href="http://www.arduino.org/learning/tutorials/boards-tutorials"><img src="./Burn the bootloader using ATMEL STUDIO_files/tutorials.gif" alt="arduino boards tutorials" width="36" height="36"></a></td>
+<td class="link-td-right"><a href="http://www.arduino.org/learning/tutorials/boards-tutorials" class="tutorials-links-right">BOARDS TUTORIALS</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="tutorials-table-right">
+<tbody>
+<tr>
+<td class="icons-td-right"><a href="http://www.arduino.org/learning/tutorials/advanced-guides"><img src="./Burn the bootloader using ATMEL STUDIO_files/advanced_guides.gif" alt="arduino advanced guides" width="36" height="36"></a></td>
+<td class="link-td-right"><a href="http://www.arduino.org/learning/tutorials/advanced-guides" class="tutorials-links-right">ADVANCED GUIDES</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="tutorials-table-right">
+<tbody>
+<tr>
+<td class="icons-td-right"><a href="http://www.arduino.org/learning/tutorials/hackings"><img src="./Burn the bootloader using ATMEL STUDIO_files/hacking.gif" alt="arduino hackings" width="36" height="36"></a></td>
+<td class="link-td-right"><a href="http://www.arduino.org/learning/tutorials/hackings" class="tutorials-links-right">HACKINGS</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<section id="block-bottom-b">
+<div class="container">
+<div class="block blockequalize equal-column  row">
+<div class="col-md-3 col-sm-3"><div class="position position-bottom-b-1">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<div class="custom footermodules">
+<p>DISCOVER OUR</p>
+<p>WHOLE STORY<br><br></p>
+<p><a href="http://www.arduino.org/about-us" class="btn btn-general btn-outline btn-xs" onclick="" target="_self">About us</a><br><br><br></p> </div>
+</div>
+</div>
+</div></div><div class="col-md-3 col-sm-3"><div class="position position-bottom-b-2">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<p>GET IN TOUCH</p>
+<p>WITH US<br><br></p>
+<p><a href="http://www.arduino.org/contact-us" class="btn btn-general btn-outline btn-xs" onclick="" target="_self">Contact us</a><br><br><br></p>
+</div>
+</div>
+</div></div><div class="col-md-3 col-sm-3"><div class="position position-bottom-b-3">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<p>FIND ALL OUR OPEN POSITIONS AND JOIN US!<br>&nbsp;</p>
+<p><a href="http://www.arduino.org/arduino-job-search" class="btn btn-general btn-outline btn-xs" onclick="" target="_self">JOB SEARCH</a><br><br><br></p>
+</div>
+</div>
+</div></div><div class="col-md-3 col-sm-3"><div class="position position-bottom-b-4">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<div id="cmc-signup-365" class="cmc-signup newsletter">
+<div class="cmc-error alert alert-error" style="display:none"></div>
+<div class="cmc-saved alert alert-success" style="display:none">
+		Thank you! Please check your email and confirm the newsletter subscription.	</div>
+<div class="cmc-updated" style="display:none">
+		Your subscription was updated	</div>
+<form action="http://www.arduino.org/component/cmc/?format=raw&amp;task=subscription.save" method="post" id="cmc-signup-form-365" class="form-validate" name="cmc365">
+<div class="row-fluid">
+<div class="span12">
+<div class="control-group">
+<div class="control-label">
+<span class="spacer"><span class="before"></span><span class="text"><label id="jform_cmc_intro_text-lbl" class="">Newsletter</label></span><span class="after"></span></span>	</div>
+<div class="controls">
+</div>
+</div>
+<div class="control-group">
+<div class="control-label">
+</div>
+<div class="controls">
+<input type="hidden" name="jform[cmc][listid]" id="jform_cmc_listid" value="34bbb968f9">	</div>
+</div>
+</div>
+</div>
+<div class="row-fluid">
+<div class="span12">
+<div class="control-group">
+<div class="control-label">
+<label id="jform_cmc_groups_EMAIL-lbl" for="jform_cmc_groups_EMAIL" class="form-label cmc-label required">
+	Email Address<span class="star">&nbsp;*</span></label>
+</div>
+<div class="controls">
+<input type="email" name="jform[cmc_groups][EMAIL]" id="jform_cmc_groups_EMAIL" value="" class="inputbox input-medium cmc_req validate-email required" placeholder="Email Address *" required="required" aria-required="true">	<div class="help-inline alert alert-error cmc-exist hide">
+										It seems that you have already subscribed to this list.										<a href="http://www.arduino.org/">Click here to update your profile.</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row-fluid">
+</div>
+<input type="hidden" class="cmc_exist" name="jform[exists]" value="0">
+<input type="hidden" name="203ae749853491f72dd263a8fd2cb5a2" value="1">
+<button class="btn btn-primary validate" type="submit">
+							Subscribe						<img width="16" height="16" class="cmc-spinner" style="display: none;" src="./Burn the bootloader using ATMEL STUDIO_files/loading-bubbles.svg" alt="loading">
+</button>
+</form>
+</div>
+</div>
+</div>
+</div></div></div>
+</div>
+</section>
+<footer id="block-footer">
+<div class="container clearfix">
+<div class="social pull-left">
+<div class="position position-social">
+<div class="jv-module">
+<div class="contentmod clearfix">
+<p><a href="https://www.facebook.com/arduino.org" target="_blank" rel="nofollow"><em class="fa fa-facebook"><span class="hidden">facebook</span></em></a> <a href="https://twitter.com/ArduinoOrg" target="_blank" rel="nofollow"><em class="fa fa-twitter"><span class="hidden">twitter</span></em></a> <a href="https://plus.google.com/108746200012741458777" target="_blank" rel="publisher"><em class="fa fa-google-plus"><span class="hidden">Google+</span></em></a> <a href="https://www.instagram.com/arduinoorg/" target="_blank" rel="nofollow"><em class="fa fa-instagram"><span class="hidden">Instagram</span></em></a> <a href="https://www.youtube.com/c/ArduinoOrgPage" target="_blank" rel="nofollow"><em class="fa fa-youtube"><span class="hidden">youtube2&nbsp;</span></em></a> <a href="https://www.linkedin.com/company/arduino-srl" target="_blank" rel="nofollow"><em class="fa fa-linkedin"><span class="hidden">LinkedIn</span></em></a> <a href="https://www.pinterest.com/arduino/" target="_blank" rel="nofollow"><em class="fa fa-pinterest"><span class="hidden">Pinterest</span></em></a> <a href="http://arduino.tumblr.com/" target="_blank" rel="nofollow"><em class="fa fa-tumblr"><span class="hidden">Tumblr</span></em></a> <a href="https://github.com/arduino-org" target="_blank"><em class="fa fa-github"><span class="hidden">GitHub</span></em></a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="footer pull-right">
+<div class="copyright"> <div>
+                © Copyright 2016.<br>Arduino S.r.l. - Italy - <a href="http://www.arduino.org/copyright-notice" target="_blank">Copyright Notice</a> </div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Start Alexa Certify Javascript -->
+<noscript>&lt;img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=eZDSl1a8FRh2mh" style="display:none" height="1" width="1" alt="Alexa image" /&gt;</noscript>
+<!-- End Alexa Certify Javascript -->
+</div>
+</div>
+<div class="menu-icon-cont sm-btn-385"><div class="menu-icon3"><span></span><span></span><span></span></div></div></div></div></div><!--[if lt IE 9]>
+<script src="/plugins/system/jvframework/framework/basethemes/js/html5shiv.js" type="text/javascript"></script>
+<script src="/plugins/system/jvframework/framework/basethemes/js/respond.src.js" type="text/javascript"></script>
+<![endif]--><script type="text/javascript" async="" src="./Burn the bootloader using ATMEL STUDIO_files/ga.js"></script><script type="text/javascript" async="" src="./Burn the bootloader using ATMEL STUDIO_files/atrk.js"></script><script src="./Burn the bootloader using ATMEL STUDIO_files/js-60751.js" type="text/javascript"></script><script src="./Burn the bootloader using ATMEL STUDIO_files/TweenMax.min.js" type="text/javascript"></script><script src="./Burn the bootloader using ATMEL STUDIO_files/js-c7a71.js" type="text/javascript"></script><script src="./Burn the bootloader using ATMEL STUDIO_files/mthash.js" type="text/javascript"></script><script src="./Burn the bootloader using ATMEL STUDIO_files/eprivacy.js" type="text/javascript"></script><script type="text/javascript">jQuery(document).ready(function(){new cmc("#cmc-signup-365");});jQuery(document).ready(function()
+{jQuery('.hasTooltip').tooltip({"html":true,"container":"body"});});window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/index.php?option=com_ajax&format=json",true);r.send(null)}},3600000);jQuery(function(){new JVMenu('#fxmenu87',{main:{delay:0,duration:300,effect:'fade',easing:'linear'},sub:{delay:0,duration:300,effect:'fade',easing:'linear'},responsive:992});})
+jQuery(function($){$.each([{"selector":".divpiechart","duration":1000,"delay":0,"offset":100,"iteration":0,"effect":"piechart","mobile":false,"groupDelay":0,"groupPoint":"","groupDesc":false},{"selector":".progress-bar","duration":1000,"delay":0,"offset":100,"iteration":0,"effect":"customAnimation","mobile":true,"groupDelay":0,"groupPoint":"","groupDesc":false},{"selector":".counting","duration":1000,"delay":0,"offset":100,"iteration":0,"effect":"counting","mobile":false,"groupDelay":0,"groupPoint":"","groupDesc":false},{"selector":".jv-columns .iconbox, body.service .position-bottom-a-1 .jv-column","duration":1000,"delay":0,"offset":100,"iteration":0,"effect":"fadeInUp","mobile":false,"groupDelay":200,"groupPoint":".jv-columns","groupDesc":false},{"selector":"body.service .position-bottom-a-1 .light > *","duration":1000,"delay":0,"offset":100,"iteration":1,"effect":"zoomIn","mobile":false,"groupDelay":0,"groupPoint":"","groupDesc":false},{"selector":".boardfadeIn","duration":1000,"delay":0,"offset":100,"iteration":1,"effect":"fadeIn","mobile":false,"groupDelay":220,"groupPoint":"","groupDesc":false}],function(){this.effect=this.effect.toString();new JVScrolling(this);});});jQuery(function(){new JVTop();});jQuery(function($){});window.plg_system_eprivacy_options={"displaytype":"ribbon","autoopen":true,"accepted":false,"policyurl":"privacy-policy","lawlink":"","version":"3.5.1","root":"http:\/\/www.arduino.org\/"};</script><script type="text/javascript">(function(){Joomla.JText.load({"JLIB_FORM_FIELD_INVALID":"Invalid field:&#160","PLG_SYS_EPRIVACY_MESSAGE":"We use cookies to improve navigation on our website. If you continue to use this site or press I AGREE button, you accept cookies.","PLG_SYS_EPRIVACY_POLICYTEXT":"View Privacy Policy","PLG_SYS_EPRIVACY_LAWLINK_TEXT":"View e-Privacy Directive Documents","PLG_SYS_EPRIVACY_AGREE":"I agree","PLG_SYS_EPRIVACY_DECLINE":"I decline","PLG_SYS_EPRIVACY_CONFIRMUNACCEPT":"Performing this action will remove all cookies set by this website.  Third party cookies will no longer communicate to their parent sites, but cannot be removed by this website and must be removed by other means.\n\nAre you sure you want to disable and remove cookies?"});})();</script><script>document[(_el=document.addEventListener)?'addEventListener':'attachEvent'](_el?'DOMContentLoaded':'onreadystatechange',function(){if(!_el&&document.readyState!='complete')return;(window.jq183||jQuery)('.noscript').removeClass('noscript');window.sm385=new VerticalSlideMenu({id:385,visibility:["1","1","1","1","1",["0","px"],["10000","px"]],parentHref:0,theme:'flat',result:'Search Results',noResult:'No Results Found',backItem:'',filterDelay:500,filterMinChar:3,navtype:'expand',sidebar:-1,popup:0,overlay:0,sidebarUnder:768,width:300,menuIconCorner:1,menuIconX:0,menuIconY:0,hidePopupUnder:1750,siteBg:'#ffffff',effect:2,dur:400/1000,perspective:0,inEase:'Quad.easeOut'.split('.').reverse().join(''),inOrigin:'50% 50% 0',inX:100,inUnitX:'%',logoUrl:'',inCSS:{y:0,opacity:100/100,rotationX:0,rotationY:0,rotationZ:0,skewX:0,skewY:0,scaleX:100/100,scaleY:100/100},outEase:'Quad.easeOut'.split('.').reverse().join(''),outOrigin:'50% 50% 0',outX:-100,outUnitX:'%',outCSS:{y:0,opacity:100/100,rotationX:0,rotationY:0,rotationZ:0,skewX:0,skewY:0,scaleX:100/100,scaleY:100/100},anim:{perspective:1000,inDur:300/1000,inEase:'Quad.easeOut'.split('.').reverse().join(''),inOrigin:'50% 50% 0',inX:-30,inUnitX:'px',inCSS:{y:0,opacity:0/100,rotationX:0,rotationY:0,rotationZ:0,skewX:0,skewY:0,scaleX:100/100,scaleY:100/100},outDur:300/1000,outEase:'Quad.easeOut'.split('.').reverse().join(''),outOrigin:'50% 50% 0',outX:20,outUnitX:'px',outCSS:{y:0,opacity:0/100,rotationX:0,rotationY:0,rotationZ:0,skewX:0,skewY:0,scaleX:100/100,scaleY:100/100}},miAnim:0,miDur:500/1000,miShift:40/1000,miEase:'Quad.easeOut'.split('.').reverse().join(''),miX:40,miUnitX:'%',miCSS:{transformPerspective:600,transformOrigin:'50% 50% 0',y:0,opacity:0/100,rotationX:0,rotationY:0,rotationZ:0,skewX:0,skewY:0,scaleX:100/100,scaleY:100/100},iconAnim:0&&0,bgX:0,dropwidth:250,dropspace:0,dropFullHeight:0,dropEvent:'mouseenter',opened:1,autoOpen:0});});</script><script type="text/javascript">_atrk_opts={atrk_acct:"eZDSl1a8FRh2mh",domain:"arduino.org",dynamic:true};(function(){var as=document.createElement('script');as.type='text/javascript';as.async=true;as.src="https://d31qbv1cthcecs.cloudfront.net/atrk.js";var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as,s);})();</script><script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-60111446-1']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+<div id="search-modal-213" class="modal fade search-wrapper" tabindex="-1" role="dialog" aria-hidden="false">
+<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<form action="http://www.arduino.org/learning/tutorials/advanced-guides" method="post">
+<div class="input-group"><input name="searchword" id="mod-search-searchword" maxlength="200" class="form-control search-query" type="search" placeholder="Search ..."><span class="input-group-btn"> <button class="button btn btn-primary" onclick="this.form.searchword.focus();"><i class="fa fa-search"></i></button></span></div>	<input type="hidden" name="task" value="search">
+<input type="hidden" name="option" value="com_search">
+<input type="hidden" name="Itemid" value="438">
+</form>
+</div>
+</div>
+</div><div id="toTop" style="opacity: 1;"></div><div class="activebar-container"><p><button class="accept">I agree</button><button class="decline">I decline</button>We use cookies to improve navigation on our website. If you continue to use this site or press I AGREE button, you accept cookies.<ul class="links"><li><a href="http://www.arduino.org/learning/tutorials/advanced-guides/privacy-policy">View Privacy Policy</a></li></ul></p></div><div class="activebar-container"><p><button class="accept">I agree</button><button class="decline">I decline</button>We use cookies to improve navigation on our website. If you continue to use this site or press I AGREE button, you accept cookies.<ul class="links"><li><a href="http://www.arduino.org/learning/tutorials/advanced-guides/privacy-policy">View Privacy Policy</a></li></ul></p></div><nav id="off-menu_385" class="off-menu_385 sm-menu ">
+<div class="sm-logo">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/arduino-news.png" alt="arduino">
+</div>
+<div class="sm-top">
+<div class="custom ide-download-home">
+<p style="text-align: center;"><a href="http://www.arduino.org/download">ARDUINO IDE v. 1.7.10</a></p> </div>
+<div id="k2ModuleBox389" class="k2NewsUpdate k2ItemsBlock home_new_products pb-100">
+<div class="k2NewsItems home-products">
+<div class="row">
+<div class="col-md-6">
+<div class="k2NewsItem" style="background-image: url(/media/k2/items/cache/2aa996f39965e7bd57256a4683c8eee7_XS.jpg);">
+<div class="k2NewsItem-Inner home-products">
+<a class="k2NewsItem-Image Home" style="background-image: url(/media/k2/items/cache/2aa996f39965e7bd57256a4683c8eee7_XS.jpg);" href="http://www.arduino.org/products/boards/arduino-primo" title="Continue reading &quot;Arduino PRIMO&quot;">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/2aa996f39965e7bd57256a4683c8eee7_XS.jpg" alt="Arduino PRIMO" class="hidden">
+</a>
+<div class="k2NewsItem-Content Home">
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<!-- Plugins: BeforeDisplayContent -->
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<a class="moduleItemTitle post-title HomeProd" href="http://www.arduino.org/products/boards/arduino-primo">Arduino PRIMO</a>
+<div class="k2NewsItem-Meta post-title">
+</div>
+<!-- end meta -->
+<!-- Plugins: AfterDisplayContent -->
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+</div>
+<!-- end content -->
+</div>
+</div>
+<!-- end k2NewsItem -->
+</div>
+<div class="col-md-6">
+<div class="k2NewsItem" style="background-image: url(/media/k2/items/cache/38bea6f232aa990273b367ca55af8e69_XS.jpg);">
+<div class="k2NewsItem-Inner home-products">
+<a class="k2NewsItem-Image Home" style="background-image: url(/media/k2/items/cache/38bea6f232aa990273b367ca55af8e69_XS.jpg);" href="http://www.arduino.org/products/boards/arduino-star-otto" title="Continue reading &quot;Arduino STAR - OTTO&quot;">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/38bea6f232aa990273b367ca55af8e69_XS.jpg" alt="Arduino STAR - OTTO" class="hidden">
+</a>
+<div class="k2NewsItem-Content Home">
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<!-- Plugins: BeforeDisplayContent -->
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<a class="moduleItemTitle post-title HomeProd" href="http://www.arduino.org/products/boards/arduino-star-otto">Arduino STAR - OTTO</a>
+<div class="k2NewsItem-Meta post-title">
+</div>
+<!-- end meta -->
+<!-- Plugins: AfterDisplayContent -->
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+</div>
+<!-- end content -->
+</div>
+</div>
+<!-- end k2NewsItem -->
+</div>
+</div><div class="row">
+<div class="col-md-6">
+<div class="k2NewsItem" style="background-image: url(/media/k2/items/cache/86e8e67edae9219d12d438efd5f5a939_XS.jpg);">
+<div class="k2NewsItem-Inner home-products">
+<a class="k2NewsItem-Image Home" style="background-image: url(/media/k2/items/cache/86e8e67edae9219d12d438efd5f5a939_XS.jpg);" href="http://www.arduino.org/products/boards/arduino-uno-wifi" title="Continue reading &quot;Arduino UNO WiFi&quot;">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/86e8e67edae9219d12d438efd5f5a939_XS.jpg" alt="Arduino UNO WiFi" class="hidden">
+</a>
+<div class="k2NewsItem-Content Home">
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<!-- Plugins: BeforeDisplayContent -->
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<a class="moduleItemTitle post-title HomeProd" href="http://www.arduino.org/products/boards/arduino-uno-wifi">Arduino UNO WiFi</a>
+<div class="k2NewsItem-Meta post-title">
+</div>
+<!-- end meta -->
+<!-- Plugins: AfterDisplayContent -->
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+</div>
+<!-- end content -->
+</div>
+</div>
+<!-- end k2NewsItem -->
+</div>
+</div>
+</div>
+</div>
+<div id="k2ModuleBox237" class="k2NewsUpdate k2ItemsBlock home_news pb-100">
+<div class="k2NewsItems Home">
+<div class="row">
+<div class="col-md-6">
+<div class="k2NewsItem" style="background-image: url(/media/k2/items/cache/24f13dfd02fd46bd71a7e0abea42e3b3_XS.jpg);">
+<div class="k2NewsItem-Inner Home">
+<a class="k2NewsItem-Image Home" style="background-image: url(/media/k2/items/cache/24f13dfd02fd46bd71a7e0abea42e3b3_XS.jpg);" href="http://www.arduino.org/blog/two-arduinos-become-one" title="Continue reading &quot;Two Arduinos Become One&quot;">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/24f13dfd02fd46bd71a7e0abea42e3b3_XS.jpg" alt="Two Arduinos Become One" class="hidden">
+</a>
+<div class="k2NewsItem-Content Home">
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<!-- Plugins: BeforeDisplayContent -->
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<a class="moduleItemTitle post-title Home" href="http://www.arduino.org/blog/two-arduinos-become-one">Two Arduinos Become One</a>
+<div class="k2NewsItem-Meta post-title">
+<span>September 30 2016</span>
+</div>
+<!-- end meta -->
+<!-- Plugins: AfterDisplayContent -->
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+</div>
+<!-- end content -->
+</div>
+</div>
+<!-- end k2NewsItem -->
+</div>
+<div class="col-md-6">
+<div class="k2NewsItem" style="background-image: url(/media/k2/items/cache/dabc434549d80d8d09e61e03ac4a4c32_XS.jpg);">
+<div class="k2NewsItem-Inner Home">
+<a class="k2NewsItem-Image Home" style="background-image: url(/media/k2/items/cache/dabc434549d80d8d09e61e03ac4a4c32_XS.jpg);" href="http://www.arduino.org/blog/wireless-wearable-fashion-voice-control-and-more-at-maker-faire-ny" title="Continue reading &quot;Wireless Wearable Fashion and Voice Control at Maker Faire NY&quot;">
+<img src="./Burn the bootloader using ATMEL STUDIO_files/dabc434549d80d8d09e61e03ac4a4c32_XS.jpg" alt="Wireless Wearable Fashion and Voice Control at Maker Faire NY" class="hidden">
+</a>
+<div class="k2NewsItem-Content Home">
+<!-- Plugins: AfterDisplayTitle -->
+<!-- K2 Plugins: K2AfterDisplayTitle -->
+<!-- Plugins: BeforeDisplayContent -->
+<!-- K2 Plugins: K2BeforeDisplayContent -->
+<a class="moduleItemTitle post-title Home" href="http://www.arduino.org/blog/wireless-wearable-fashion-voice-control-and-more-at-maker-faire-ny">Wireless Wearable Fashion and Voice Control at Maker Faire NY</a>
+<div class="k2NewsItem-Meta post-title">
+<span>September 29 2016</span>
+</div>
+<!-- end meta -->
+<!-- Plugins: AfterDisplayContent -->
+<!-- K2 Plugins: K2AfterDisplayContent -->
+<!-- Plugins: AfterDisplay -->
+<!-- K2 Plugins: K2AfterDisplay -->
+</div>
+<!-- end content -->
+</div>
+</div>
+<!-- end k2NewsItem -->
+</div>
+</div><div class="row">
+</div>
+</div>
+</div>
+<div class="custom home_vert_events">
+<div>
+<div id="jux-eventon-event-sidebar">
+<div class="jux-event-item">
+<ul>
+<li>
+<div class="thumb-holder">
+<span class="event-date">
+<span title="">
+<span class="month">Oct</span>
+<span class="day">11</span>
+</span>
+</span>
+</div>
+<h4>
+<a href="http://www.arduino.org/events/event/48-elce-berlin" title="Embedded Linux Conference Europe 2016">
+                                Embedded Linux Conference Europe 2016                            </a>
+</h4>
+<span class="jux-venue-venue">
+<a href="http://www.arduino.org/events/event/48-elce-berlin">
+<i class="jux-fa jux-fa-map-marker"></i>
+                                Berlin  
+                            </a>
+</span>
+</li>
+<li>
+<div class="thumb-holder">
+<span class="event-date">
+<span title="">
+<span class="month">Oct</span>
+<span class="day">13</span>
+</span>
+</span>
+</div>
+<h4>
+<a href="http://www.arduino.org/events/event/47-openwrt-summit-2016" title="OpenWrt Summit 2016">
+                                OpenWrt Summit 2016                            </a>
+</h4>
+<span class="jux-venue-venue">
+<a href="http://www.arduino.org/events/event/47-openwrt-summit-2016">
+<i class="jux-fa jux-fa-map-marker"></i>
+                                Berlin  
+                            </a>
+</span>
+</li>
+</ul>
+</div>
+</div>
+</div> </div>
+</div>
+<div class="sm-levels">
+<div class="sm-level level1"><dl class="level1 ps-container">
+<dt class="level1 off-nav-274 notparent first">
+<div class="inner">
+<div class="link"><a data-text="News" href="http://www.arduino.org/news">News</a></div>
+</div>
+</dt>
+<dd class="level1 off-nav-274 notparent first">
+</dd>
+<dt class="level1 off-nav-435 notparent">
+<div class="inner">
+<div class="link"><a data-text="Blog" href="http://www.arduino.org/blog-post">Blog</a></div>
+</div>
+</dt>
+<dd class="level1 off-nav-435 notparent">
+</dd>
+<div class="ps-scrollbar-y-rail" style="display: block; top: 0px; height: 0px; right: 3px; visibility: hidden;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></dl></div>
+<div class="sm-level level2" style="display: none;"><dl class="sm-result level2"></dl></div></div>
+</nav></body></html>
