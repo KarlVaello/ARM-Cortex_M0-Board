@@ -537,7 +537,7 @@ design rules under a new name.</description>
 <element name="C4" library="KarlVaello-Capacitors" package="C0603" value="" x="24.3" y="16.9" rot="R270"/>
 <element name="C5" library="KarlVaello-Capacitors" package="C0603" value="100nF" x="21.5" y="16.5" rot="R90"/>
 <element name="J2" library="SparkFun-Connectors" package="2X5-PTH-1.27MM" value="CORTEX_DEBUGPTH" x="7" y="6.8"/>
-<element name="C6" library="KarlVaello-Capacitors" package="C0603" value="1uF" x="11.2" y="15.8"/>
+<element name="C6" library="KarlVaello-Capacitors" package="C0603" value="1uF" x="7.9" y="12.7"/>
 </elements>
 <signals>
 <signal name="VDDANA">
@@ -595,6 +595,7 @@ design rules under a new name.</description>
 <contactref element="J2" pad="5"/>
 <contactref element="C6" pad="1"/>
 <wire x1="27.5" y1="27.25" x2="25.25" y2="29.275" width="0" layer="19" extent="1-1"/>
+<wire x1="7.05" y1="12.7" x2="5.73" y2="6.165" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="IC1" pad="17"/>
@@ -629,7 +630,7 @@ design rules under a new name.</description>
 <signal name="N$7">
 <contactref element="IC1" pad="43"/>
 <contactref element="C6" pad="2"/>
-<wire x1="12.05" y1="15.8" x2="24.75" y2="29.275" width="0" layer="19" extent="1-1"/>
+<wire x1="8.75" y1="12.7" x2="24.75" y2="29.275" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 </board>
