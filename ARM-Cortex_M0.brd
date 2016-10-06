@@ -626,8 +626,8 @@ design rules under a new name.</description>
 <element name="J8" library="SparkFun-Connectors" package="1X01NS-KIT" value="" x="2.9" y="8.2"/>
 <element name="J9" library="SparkFun-Connectors" package="1X01NS-KIT" value="" x="2.9" y="6.1"/>
 <element name="J10" library="SparkFun-Connectors" package="1X01NS-KIT" value="" x="2.9" y="4"/>
-<element name="J11" library="SparkFun-Connectors" package="USB-B-MICRO-SMD_V03" value="" x="29.9" y="2" rot="R90">
-<attribute name="PROD_ID" value="CONN-11752" x="29.9" y="2" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="J11" library="SparkFun-Connectors" package="USB-B-MICRO-SMD_V03" value="" x="30" y="6.3" rot="R90">
+<attribute name="PROD_ID" value="CONN-11752" x="30" y="6.3" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 </elements>
 <signals>

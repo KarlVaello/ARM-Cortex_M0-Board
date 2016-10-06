@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4022,7 +4023,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="+3V4" gate="G$1" x="-58.42" y="114.3"/>
 <instance part="C6" gate="G$1" x="88.9" y="12.7" rot="R180"/>
 <instance part="GND8" gate="1" x="88.9" y="5.08"/>
-<instance part="U1" gate="G$1" x="-25.4" y="165.1"/>
+<instance part="U1" gate="G$1" x="-22.86" y="165.1"/>
 <instance part="C7" gate="G$1" x="2.54" y="162.56" rot="R180"/>
 <instance part="+3V5" gate="G$1" x="10.16" y="177.8"/>
 <instance part="GND9" gate="1" x="-43.18" y="149.86"/>
@@ -4135,7 +4136,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="GND"/>
-<wire x1="-35.56" y1="160.02" x2="-43.18" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="160.02" x2="-43.18" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="160.02" x2="-43.18" y2="152.4" width="0.1524" layer="91"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 </segment>
@@ -4181,7 +4182,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="OUT"/>
-<wire x1="-17.78" y1="170.18" x2="2.54" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="170.18" x2="2.54" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="2.54" y1="170.18" x2="10.16" y2="170.18" width="0.1524" layer="91"/>
 <wire x1="2.54" y1="167.64" x2="2.54" y2="170.18" width="0.1524" layer="91"/>
@@ -4234,9 +4235,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="RAW" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="IN"/>
-<wire x1="-35.56" y1="170.18" x2="-43.18" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="170.18" x2="-43.18" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="U1" gate="G$1" pin="EN"/>
-<wire x1="-35.56" y1="165.1" x2="-43.18" y2="165.1" width="0.1524" layer="91"/>
+<wire x1="-33.02" y1="165.1" x2="-43.18" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="165.1" x2="-43.18" y2="170.18" width="0.1524" layer="91"/>
 <junction x="-43.18" y="170.18"/>
 <wire x1="-43.18" y1="170.18" x2="-78.74" y2="170.18" width="0.1524" layer="91"/>
