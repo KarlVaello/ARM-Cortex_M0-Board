@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0067)http://asf.atmel.com/docs/3.16.0/samd21/html/ioport_quickstart.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="generator" content="Doxygen 1.8.5">
+<title>ASF Source Code Documentation</title>
+<link href="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/tabs.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/elqCfg.min.js.descarga"></script><script type="text/javascript" async="" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/ga.js.descarga"></script><script type="text/javascript" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/analytics.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/jquery.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/dynsections.js.descarga"></script>
+<link href="http://asf.atmel.com/docs/3.16.0/doxygen_mainpage/images/favicon.ico" rel="shortcut icon" type="/image/vnd.microsoft.icon">
+<link href="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/search.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/search.js.descarga"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/MathJax.js.descarga"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<!-- Link directly in header to be able to use images/ -->
+<link href="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/base.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/asf_doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		setup_google_analytics();
+		/* Hide the duplicate search bar that's in doxygen's navbar */
+		$("div#top div#MSearchBox").hide();
+	});
+//-->
+</script>
+<script type="text/javascript">
+	if ('1733930802'!='[LBL{primary_master_eloqua_siteid}]')
+	{
+		var _elqQ = _elqQ || [];
+		_elqQ.push(['elqSetSiteId', '1733930802']);
+		_elqQ.push(['elqTrackPageView']);
+		(function ()
+	{
+	function async_load()
+	{
+		var s = document.createElement('script'); s.type = 'text/javascript';
+		s.async = true; s.src = 'http://www.atmel.com/System/Javascript/elqCfg.min.js';
+		var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+	}
+	if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+	else if (window.attachEvent) window.attachEvent('onload', async_load);
+	})();
+}
+</script>
+<div id="asf_page_header">
+	<div id="asf_search_box">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/close.png" alt=""></a>
+          </span>
+        </div>
+</div>
+	<div id="asf_title"><h1>Atmel Software Framework</h1></div>
+</div>
+<div id="asf_page_content">
+	<div id="asf_side_menu">
+		<ul class="linklist">
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/index.html">Home</a></li>
+			<li class="category">Features</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_boards.html">ASF-Boards</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_can_lin.html">ASF-CAN/LIN</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_components.html">ASF-Components</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_drivers.html">ASF-Drivers</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_dsp.html">ASF-DSP</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_fs.html">ASF-FS</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_gfx.html">ASF-GFX</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_sensors.html">ASF-Sensors</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_services.html">ASF-Services</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_usb.html">ASF-USB</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/3rd_party.html">3rd Party</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/cmsis.html">CMSIS</a></li>
+			</div>
+			<li class="category">Documentation</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/architecture.html">ASF Architecture</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/dyn/resources/prod_documents/doc8432.pdf">Reference Manual</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/api.html">API</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/applications.html">Applications</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/unit_tests.html">Unit-Tests</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/asf">Release Notes</a></li>
+			</div>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/get_started.html">Get Started</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/download.html">Download</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/bug_tracker.html">Bug Tracker</a></li>
+		</ul>
+	</div>
+	<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/index.html"><span>Main&nbsp;Page</span></a></li>
+      <li class="current"><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/pages.html"><span>Related&nbsp;Pages</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/modules.html"><span>Modules</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/annotated.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/files.html"><span>Files</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive" style="display: none;">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/close.png" alt=""></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">•</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&nbsp;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&nbsp;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/saved_resource.html">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Quick start guide for the common IOPORT service </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This is the quick start guide for the <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html">Common IOPORT API</a>, with step-by-step instructions on how to configure and use the service in a selection of use cases.</p>
+<p>The use cases contain several code fragments. The code fragments in the steps for setup can be copied into a custom initialization function, while the steps for usage can be copied into, e.g., the main application function.</p>
+<h1><a class="anchor" id="ioport_quickstart_basic"></a>
+Basic use case</h1>
+<p>In this use case we will configure one IO pin for button input and one for LED control. Then it will read the button state and output it on the LED.</p>
+<h1><a class="anchor" id="ioport_quickstart_basic_setup"></a>
+Setup steps</h1>
+<h2><a class="anchor" id="ioport_quickstart_basic_setup_code"></a>
+Example code</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#define MY_LED    IOPORT_CREATE_PIN(PORTA, 5)</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define MY_BUTTON IOPORT_CREATE_PIN(PORTA, 6)</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga514c0fcce7d55e3211eaa67481103adc">ioport_init</a>();</div>
+<div class="line"></div>
+<div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d3cad38c936cf010569927289262350">ioport_set_pin_dir</a>(MY_LED, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gga9c267f89800e58bd9dfd74e662a4a4c1a06de24313dad0169f3a366c62a84f4cc">IOPORT_DIR_OUTPUT</a>);</div>
+<div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d3cad38c936cf010569927289262350">ioport_set_pin_dir</a>(MY_BUTTON, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gga9c267f89800e58bd9dfd74e662a4a4c1af854a0dce084e5a8e8744f9a502e7b7b">IOPORT_DIR_INPUT</a>);</div>
+<div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga09df7897a4e2401204c84211a29aa67a">ioport_set_pin_mode</a>(MY_BUTTON, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga4c5d85e77f012b73dce89cfb84ef851f">IOPORT_MODE_PULLUP</a>);</div>
+</div><!-- fragment --><h2><a class="anchor" id="ioport_quickstart_basic_setup_flow"></a>
+Workflow</h2>
+<ol type="1">
+<li>It's useful to give the GPIOs symbolic names and this can be done with the <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gabc09edad7c3187dec63ce47e6f1b3c51">IOPORT_CREATE_PIN</a> macro. We define one for a LED and one for a button.<ul>
+<li><div class="fragment"><div class="line"><span class="preprocessor">#define MY_LED    IOPORT_CREATE_PIN(PORTA, 5)</span></div>
+<div class="line"><span class="preprocessor">#define MY_BUTTON IOPORT_CREATE_PIN(PORTA, 6)</span></div>
+</div><!-- fragment --></li>
+<li><dl class="section note"><dt>Note</dt><dd>The usefulness of the <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gabc09edad7c3187dec63ce47e6f1b3c51">IOPORT_CREATE_PIN</a> macro and port names differ between architectures:<ul>
+<li>MEGA, MEGA_RF and XMEGA: Use <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gabc09edad7c3187dec63ce47e6f1b3c51">IOPORT_CREATE_PIN</a> macro with port definitions PORTA, PORTB ...</li>
+<li>UC3: Most convenient to pick up the device header file pin definition and us it directly. E.g.: AVR32_PIN_PB06</li>
+<li>SAM: Most convenient to pick up the device header file pin definition and us it directly. E.g.: PIO_PA5_IDX<br>
+ <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gabc09edad7c3187dec63ce47e6f1b3c51">IOPORT_CREATE_PIN</a> can also be used with port definitions PIOA, PIOB ...</li>
+</ul>
+</dd></dl>
+</li>
+</ul>
+</li>
+<li>Initialize the ioport service. This typically enables the IO module if needed.<ul>
+<li><div class="fragment"><div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga514c0fcce7d55e3211eaa67481103adc">ioport_init</a>(); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Set the LED GPIO as output:<ul>
+<li><div class="fragment"><div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d3cad38c936cf010569927289262350">ioport_set_pin_dir</a>(MY_LED, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gga9c267f89800e58bd9dfd74e662a4a4c1a06de24313dad0169f3a366c62a84f4cc">IOPORT_DIR_OUTPUT</a>); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Set the button GPIO as input:<ul>
+<li><div class="fragment"><div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d3cad38c936cf010569927289262350">ioport_set_pin_dir</a>(MY_BUTTON, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#gga9c267f89800e58bd9dfd74e662a4a4c1af854a0dce084e5a8e8744f9a502e7b7b">IOPORT_DIR_INPUT</a>); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Enable pull-up for the button GPIO:<ul>
+<li><div class="fragment"><div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga09df7897a4e2401204c84211a29aa67a">ioport_set_pin_mode</a>(MY_BUTTON, <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga4c5d85e77f012b73dce89cfb84ef851f">IOPORT_MODE_PULLUP</a>); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="ioport_quickstart_basic_usage"></a>
+Usage steps</h1>
+<h2><a class="anchor" id="ioport_quickstart_basic_usage_code"></a>
+Example code</h2>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> value;</div>
+<div class="line"></div>
+<div class="line">value = <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d23ff7094fbf483c45f7c081ebd389b">ioport_get_pin_level</a>(MY_BUTTON);</div>
+<div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga4a68c82ba7e071467418ced856559035">ioport_set_pin_level</a>(MY_LED, value);</div>
+</div><!-- fragment --><h2><a class="anchor" id="ioport_quickstart_basic_usage_flow"></a>
+Workflow</h2>
+<ol type="1">
+<li>Define a boolean variable for state storage:<ul>
+<li><div class="fragment"><div class="line"><span class="keywordtype">bool</span> value; </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Read out the button level into variable value:<ul>
+<li><div class="fragment"><div class="line">value = <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga2d23ff7094fbf483c45f7c081ebd389b">ioport_get_pin_level</a>(MY_BUTTON); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>Set the LED to read out value from the button:<ul>
+<li><div class="fragment"><div class="line"><a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ioport__group.html#ga4a68c82ba7e071467418ced856559035">ioport_set_pin_level</a>(MY_LED, value); </div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="ioport_quickstart_advanced"></a>
+Advanced use cases</h1>
+<ul>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/ioport_quickstart_use_case_1.html">Advanced use case doing port access</a> : <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> access </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- asf_page_content -->
+<hr class="footer"><address class="footer"><small>
+Generated on Tue Jun 17 2014 08:35:33 for SAMD21 by &nbsp;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="./ASF Source Code Documentation- Quick start guide for the common IOPORT service_files/doxygen.png" alt="doxygen">
+</a> 1.8.5
+</small></address>
+
+
+</body></html>

@@ -1,0 +1,155 @@
+/* Basic layout */
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+
+body {
+	width: 100%;
+	background: url("images/header_bg.png") repeat-x scroll 0px 0px transparent;
+}
+
+#asf_page_header, #asf_page_content {
+	width: 980px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#asf_page_header {
+	height: 100px;
+}
+
+#asf_page_content {
+	margin-top: 15px;
+}
+
+#asf_search_box {
+	position: absolute;
+	width: 212px;
+	height: 100%;
+	background: url("images/atmel.png") no-repeat scroll center 3px transparent;
+}
+
+#asf_title {
+	width: 768px;
+	margin-left: 212px;
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+}
+
+#asf_title h1 {
+	font-size: 38px;
+	color: rgb(0, 102, 203);
+	margin-bottom: 22px;
+	text-shadow: 0px 1px 1px rgb(153, 153, 153);
+}
+
+#asf_side_menu {
+	position: absolute;
+	width: 202px;
+	top: -8px;
+	background-color: rgb(238, 238, 238);
+}
+
+#asf_side_menu a {
+	color: black;
+	text-align: left;
+}
+
+#asf_side_menu li.toplink a {
+	font-weight: bold;
+}
+
+#asf_side_menu ul.linklist {
+	list-style: none outside none;
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+#asf_side_menu li.toplink,
+#asf_side_menu li.category,
+#asf_side_menu li.sublink {
+	border-top: 1px dotted rgb(141, 141, 141);
+	margin-left: 10px;
+	font-weight: bold;
+	font-family: Verdana,Geneva,sans-serif;
+	font-size: 11px;
+	line-height: 1.5;
+	padding-left: 10px;
+}
+
+#asf_side_menu li.toplink:first-child {
+	border-top: none;
+}
+
+#asf_side_menu li.sublink {
+	border-top: none;
+	font-weight: normal;
+	margin-left: 20px;
+}
+
+
+/* Header styles */
+
+h1, h2, h3 {
+	font-family: 'IntervalLight', sans-serif;
+	color: #0066CB;
+	font-weight: normal;
+	padding: 0;
+	text-shadow: 0 0 0 #000;
+	-webkit-font-smoothing: 'antialiased';
+}
+
+h1 {
+	font-size: 23px;
+	margin: 0px;
+	padding: 0px;
+	line-height: 35px;
+	color: #0066CB;
+}
+
+h2 {
+	font-size: 16px;
+	line-height: 17px;
+}
+
+h3 {
+	font-size: 14px;
+	line-height: 15px;
+}
+
+
+/* Try to get a consistent look for doxygen and our own pages */
+
+table, div, p, dl {
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 11px;
+	line-height: 15px;
+	color: #444;
+}
+
+
+/* These div classes come from doxygen, but are used for doxygen and our own pages */
+
+div.header, div.contents {
+	width: 748px;
+	margin-left: 212px;
+	margin-right: 0px;
+	border-color: rgb(153, 153, 153);
+	border-style: solid;
+	border-width: 1px;
+	background: -moz-linear-gradient(center top , rgb(244, 243, 243), rgb(255, 255, 255)) repeat scroll 0% 0% transparent;
+	padding: 10px;
+	overflow: hidden;
+}
+
+div.contents {
+	margin-top: 10px;
+	min-height: 245px;
+}

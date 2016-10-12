@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0097)http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_common_freertos_dbg_print_basic_use_case.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="generator" content="Doxygen 1.8.5">
+<title>ASF Source Code Documentation</title>
+<link href="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/tabs.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/elqCfg.min.js.descarga"></script><script type="text/javascript" async="" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/ga.js.descarga"></script><script type="text/javascript" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/analytics.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/jquery.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/dynsections.js.descarga"></script>
+<link href="http://asf.atmel.com/docs/3.16.0/doxygen_mainpage/images/favicon.ico" rel="shortcut icon" type="/image/vnd.microsoft.icon">
+<link href="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/search.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/search.js.descarga"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/MathJax.js.descarga"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<!-- Link directly in header to be able to use images/ -->
+<link href="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/base.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/asf_doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		setup_google_analytics();
+		/* Hide the duplicate search bar that's in doxygen's navbar */
+		$("div#top div#MSearchBox").hide();
+	});
+//-->
+</script>
+<script type="text/javascript">
+	if ('1733930802'!='[LBL{primary_master_eloqua_siteid}]')
+	{
+		var _elqQ = _elqQ || [];
+		_elqQ.push(['elqSetSiteId', '1733930802']);
+		_elqQ.push(['elqTrackPageView']);
+		(function ()
+	{
+	function async_load()
+	{
+		var s = document.createElement('script'); s.type = 'text/javascript';
+		s.async = true; s.src = 'http://www.atmel.com/System/Javascript/elqCfg.min.js';
+		var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+	}
+	if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+	else if (window.attachEvent) window.attachEvent('onload', async_load);
+	})();
+}
+</script>
+<div id="asf_page_header">
+	<div id="asf_search_box">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/close.png" alt=""></a>
+          </span>
+        </div>
+</div>
+	<div id="asf_title"><h1>Atmel Software Framework</h1></div>
+</div>
+<div id="asf_page_content">
+	<div id="asf_side_menu">
+		<ul class="linklist">
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/index.html">Home</a></li>
+			<li class="category">Features</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_boards.html">ASF-Boards</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_can_lin.html">ASF-CAN/LIN</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_components.html">ASF-Components</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_drivers.html">ASF-Drivers</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_dsp.html">ASF-DSP</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_fs.html">ASF-FS</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_gfx.html">ASF-GFX</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_sensors.html">ASF-Sensors</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_services.html">ASF-Services</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_usb.html">ASF-USB</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/3rd_party.html">3rd Party</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/cmsis.html">CMSIS</a></li>
+			</div>
+			<li class="category">Documentation</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/architecture.html">ASF Architecture</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/dyn/resources/prod_documents/doc8432.pdf">Reference Manual</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/api.html">API</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/applications.html">Applications</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/unit_tests.html">Unit-Tests</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/asf">Release Notes</a></li>
+			</div>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/get_started.html">Get Started</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/download.html">Download</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/bug_tracker.html">Bug Tracker</a></li>
+		</ul>
+	</div>
+	<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/index.html"><span>Main&nbsp;Page</span></a></li>
+      <li class="current"><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/pages.html"><span>Related&nbsp;Pages</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/modules.html"><span>Modules</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/annotated.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/files.html"><span>Files</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive" style="display: none;">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/close.png" alt=""></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">•</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&nbsp;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&nbsp;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/saved_resource.html">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_common_freertos_dbg_print_exqsg.html">Examples for Debug Print Service for FreeRTOS</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Quick Start Guide for Debug Print Service for FreeRTOS </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>In this use case, the Debug Print service is configured with the following settings:</p>
+<ul>
+<li>128-byte print buffer</li>
+<li>output via the SERCOM UART connected to Embedded Debugger (EDBG) on an Xplained Pro board</li>
+<li>9600 baud transfer rate</li>
+</ul>
+<p>A FreeRTOS task is created which every second prints a constant string and a string containing an incrementing 32-bit hexadecimal integer.</p>
+<h1><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_setup"></a>
+Setup</h1>
+<h2><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_setup_prereq"></a>
+Prerequisites</h2>
+<p>FreeRTOS must be added to the project, and the clock driver must be configured to initialize GCLK 0 to 48 MHz. Note that FreeRTOS also has a setting for the system clock frequency which must be updated.</p>
+<h2><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_setup_code"></a>
+Code</h2>
+<p>The following must be added to the file conf_dbg_print.h: </p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/board_8h.html">board.h</a>&gt;</span></div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_BUFFER_SIZE   128</span></div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_SERCOM        EDBG_CDC_MODULE</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_GCLK_SOURCE   GCLK_GENERATOR_0</span></div>
+<div class="line"><span class="preprocessor"></span><span class="comment">// #define CONF_DBG_PRINT_BAUD_RATE     9600</span></div>
+<div class="line"><span class="comment">// This BAUD value gives 9600 baud with 48 MHz GCLK</span></div>
+<div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_BAUD_VALUE    65326</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_SERCOM_MUX    EDBG_CDC_SERCOM_MUX_SETTING</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD0   EDBG_CDC_SERCOM_PINMUX_PAD0</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD1   EDBG_CDC_SERCOM_PINMUX_PAD1</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD2   EDBG_CDC_SERCOM_PINMUX_PAD2</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD3   EDBG_CDC_SERCOM_PINMUX_PAD3</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_setup_workflow"></a>
+Workflow</h1>
+<ol type="1">
+<li>Include board definition to get settings for output to EDBG: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/board_8h.html">board.h</a>&gt;</span></div>
+</div><!-- fragment --></li>
+<li>Set buffer size to 128 byte: <div class="fragment"><div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_BUFFER_SIZE   128</span></div>
+</div><!-- fragment --></li>
+<li>Use SERCOM connected to EDBG CDC for output at 9600 baud: <div class="fragment"><div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_SERCOM        EDBG_CDC_MODULE</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_GCLK_SOURCE   GCLK_GENERATOR_0</span></div>
+<div class="line"><span class="preprocessor"></span><span class="comment">// #define CONF_DBG_PRINT_BAUD_RATE     9600</span></div>
+<div class="line"><span class="comment">// This BAUD value gives 9600 baud with 48 MHz GCLK</span></div>
+<div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_BAUD_VALUE    65326</span></div>
+<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor">#define CONF_DBG_PRINT_SERCOM_MUX    EDBG_CDC_SERCOM_MUX_SETTING</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD0   EDBG_CDC_SERCOM_PINMUX_PAD0</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD1   EDBG_CDC_SERCOM_PINMUX_PAD1</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD2   EDBG_CDC_SERCOM_PINMUX_PAD2</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CONF_DBG_PRINT_PINMUX_PAD3   EDBG_CDC_SERCOM_PINMUX_PAD3</span></div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use"></a>
+Use Case</h1>
+<h2><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_code"></a>
+Code</h2>
+<p>Add the following to your main application C file: </p>
+<div class="fragment"><div class="line">uint32_t main_counter;</div>
+<div class="line"><span class="keywordtype">char</span> main_string[] = <span class="stringliteral">"Main task iteration: 0x00000000\r\n"</span>;</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__freertos__sam0__demo__tasks__group.html#gaec4f18eaedd4176cf00320564383268d">main_task</a>(<span class="keywordtype">void</span> *params)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">do</span> {</div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga3cb124fc035aa9d5388f6fad8ca7eb23">dbg_print_str</a>(<span class="stringliteral">"Main task loop executing\r\n"</span>);</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">// Update hexadecimal 32-bit integer in string, and print it</span></div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#gacce1fd7454589e2db13972866900aa86">dbg_sprint_hexint</a>(&amp;main_string[23], main_counter++);</div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga3cb124fc035aa9d5388f6fad8ca7eb23">dbg_print_str</a>(main_string);</div>
+<div class="line"></div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#a3fc5adc340b17cb07c12ffa90d7bb8f3">vTaskDelay</a>(1000 / <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-8_80_81_2_source_2include_2_free_r_t_o_s_8h.html#a8689cad2afb0c5f65d866e2c356378bf">portTICK_RATE_MS</a>);</div>
+<div class="line">    } <span class="keywordflow">while</span>(1);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Add the following to your application's <code><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__i2c__slave__dma_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a></code> function: </p>
+<div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__group.html#ga43f5e0d6db0fb41a437cc9096b32e9b5">system_init</a>();</div>
+<div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga9bd1ce061869e93a4bb5438aa599d048">dbg_init</a>();</div>
+</div><!-- fragment --><div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#adf67e7cd0bfd1eda9e8afd048206f7c2">xTaskCreate</a>(&amp;<a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__freertos__sam0__demo__tasks__group.html#gaec4f18eaedd4176cf00320564383268d">main_task</a>,</div>
+<div class="line">        (<span class="keyword">const</span> <span class="keywordtype">char</span> *)<span class="stringliteral">"Main task"</span>,</div>
+<div class="line">        configMINIMAL_STACK_SIZE + 100,</div>
+<div class="line">        NULL,</div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</a> + 2,</div>
+<div class="line">        NULL);</div>
+</div><!-- fragment --><div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2tasks_8c.html#a598661cdd2a6af95a077245d11e3d142">vTaskStartScheduler</a>();</div>
+</div><!-- fragment --><h2><a class="anchor" id="asfdoc_common_freertos_dbg_print_basic_use_workflow"></a>
+Workflow</h2>
+<ol type="1">
+<li>Define debug variables to print out: <div class="fragment"><div class="line">uint32_t main_counter;</div>
+<div class="line"><span class="keywordtype">char</span> main_string[] = <span class="stringliteral">"Main task iteration: 0x00000000\r\n"</span>;</div>
+</div><!-- fragment --></li>
+<li>Define a FreeRTOS task for printing debug data forever: <div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__freertos__sam0__demo__tasks__group.html#gaec4f18eaedd4176cf00320564383268d">main_task</a>(<span class="keywordtype">void</span> *params)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">do</span> {</div>
+</div><!-- fragment --></li>
+<li>Print a constant string at the start of the task-loop: <div class="fragment"><div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga3cb124fc035aa9d5388f6fad8ca7eb23">dbg_print_str</a>(<span class="stringliteral">"Main task loop executing\r\n"</span>);</div>
+</div><!-- fragment --></li>
+<li>Write a hexadecimal integer into a string and print it: <div class="fragment"><div class="line">        <span class="comment">// Update hexadecimal 32-bit integer in string, and print it</span></div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#gacce1fd7454589e2db13972866900aa86">dbg_sprint_hexint</a>(&amp;main_string[23], main_counter++);</div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga3cb124fc035aa9d5388f6fad8ca7eb23">dbg_print_str</a>(main_string);</div>
+</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#gacce1fd7454589e2db13972866900aa86">dbg_sprint_hexint()</a> does not write the <code>0x</code> prefix, only the hexadecimal digits.</dd></dl>
+</li>
+<li>Add a 1 sec delay at the of the task-loop and close the task definition: <div class="fragment"><div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#a3fc5adc340b17cb07c12ffa90d7bb8f3">vTaskDelay</a>(1000 / <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-8_80_81_2_source_2include_2_free_r_t_o_s_8h.html#a8689cad2afb0c5f65d866e2c356378bf">portTICK_RATE_MS</a>);</div>
+<div class="line">    } <span class="keywordflow">while</span>(1);</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li>In <code><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__i2c__slave__dma_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a></code>, initialize the system and debug print service: <div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__group.html#ga43f5e0d6db0fb41a437cc9096b32e9b5">system_init</a>();</div>
+<div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common__freertos__dbg__print__group.html#ga9bd1ce061869e93a4bb5438aa599d048">dbg_init</a>();</div>
+</div><!-- fragment --></li>
+<li>Create an instance of the debug printing task: <div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#adf67e7cd0bfd1eda9e8afd048206f7c2">xTaskCreate</a>(&amp;<a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__freertos__sam0__demo__tasks__group.html#gaec4f18eaedd4176cf00320564383268d">main_task</a>,</div>
+<div class="line">        (<span class="keyword">const</span> <span class="keywordtype">char</span> *)<span class="stringliteral">"Main task"</span>,</div>
+<div class="line">        configMINIMAL_STACK_SIZE + 100,</div>
+<div class="line">        NULL,</div>
+<div class="line">        <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2include_2task_8h.html#a94ed0b9b3b4e8ccc859c322f18583e67">tskIDLE_PRIORITY</a> + 2,</div>
+<div class="line">        NULL);</div>
+</div><!-- fragment --></li>
+<li>Start the FreeRTOS scheduler: <div class="fragment"><div class="line">    <a class="code" href="http://asf.atmel.com/docs/3.16.0/samd21/html/freertos-7_84_82_2_source_2tasks_8c.html#a598661cdd2a6af95a077245d11e3d142">vTaskStartScheduler</a>();</div>
+</div><!-- fragment --></li>
+</ol>
+</div></div><!-- contents -->
+</div><!-- asf_page_content -->
+<hr class="footer"><address class="footer"><small>
+Generated on Tue Jun 17 2014 08:35:34 for SAMD21 by &nbsp;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="./ASF Source Code Documentation-Quick Start Guide for Debug Print Service for FreeRTOS_files/doxygen.png" alt="doxygen">
+</a> 1.8.5
+</small></address>
+
+
+</body></html>

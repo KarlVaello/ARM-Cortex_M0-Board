@@ -1,0 +1,103 @@
+/* Override doxygen colors etc. */
+
+h1, h2, h2.groupheader, h3 {
+	color: rgb(0, 102, 203);
+}
+
+div.title {
+	font-family: Verdana, Geneva, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 23px;
+	line-height: 1.2;
+	font-weight: normal;
+	color: rgb(0, 102, 203);
+}
+
+div.summary {
+	font-size: 12px;
+}
+
+div#top {
+	margin-left: 212px;
+}
+
+.tabs, .tabs2, .tabs3, .tabs .tablist, .tablist li, .navpath ul {
+	background: transparent;
+}
+
+.tablist li.current a {
+	background: -moz-linear-gradient(center top , rgb(244, 243, 243), rgb(255, 255, 255)) repeat scroll 0% 0% transparent;
+	color: rgb(0, 102, 203);
+	text-shadow: none;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(153, 153, 153);
+}
+
+.navpath ul {
+	border: 0px;
+}
+
+.navpath li.navelem {
+	background: transparent;
+	border-width: 0px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: rgb(153, 153, 153);
+}
+
+.navpath li.navelem:first-child {
+	border-left-width: 0px;
+}
+
+.tablist li a:hover, .navpath li.navelem a:hover {
+	background: transparent;
+	text-shadow: none;
+	color: gray;
+}
+
+#MSearchBox {
+	background: transparent;
+	position: absolute;
+	bottom: 22px;
+	width: 212px;
+}
+
+#MSearchField {
+	width: 148px;
+}
+
+#MSearchSelectWindow, #MSearchResultsWindow {
+	background: white;
+	border-color: rgb(153, 153, 153);
+	border-style: solid;
+	border-width: 1px;
+	position: fixed; /* Hack to get the window in correct position.. */
+}
+
+#MSearchResultsWindow {
+	margin-left: 315px; /* Hack to get the window in correct position.. */
+}
+
+.mdescLeft, .mdescRight,
+.memItemLeft, .memItemRight,
+.memTemplItemLeft, .memTemplItemRight,
+.memTemplParams,
+.memproto, .memdoc, .memdoc th,
+.memproto .mlabel {
+	background: transparent;
+}
+
+.memproto,
+.memproto .mlabel {
+	color: black;
+}
+
+.tablist a {
+	background: transparent;
+}
+
+.SRPage .SRStatus {
+	font-style: none;
+}

@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0082)http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<meta name="generator" content="Doxygen 1.8.5">
+<title>ASF Source Code Documentation</title>
+<link href="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/tabs.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/elqCfg.min.js.descarga"></script><script type="text/javascript" async="" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/ga.js.descarga"></script><script type="text/javascript" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/analytics.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/jquery.js.descarga"></script>
+<script type="text/javascript" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/dynsections.js.descarga"></script>
+<link href="http://asf.atmel.com/docs/3.16.0/doxygen_mainpage/images/favicon.ico" rel="shortcut icon" type="/image/vnd.microsoft.icon">
+<link href="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/search.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/search.js.descarga"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/MathJax.js.descarga"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style>
+<!-- Link directly in header to be able to use images/ -->
+<link href="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/base.css" rel="stylesheet" type="text/css">
+<link href="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/asf_doxygen.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head>
+<body><div id="MathJax_Message" style="display: none;"></div>
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		setup_google_analytics();
+		/* Hide the duplicate search bar that's in doxygen's navbar */
+		$("div#top div#MSearchBox").hide();
+	});
+//-->
+</script>
+<script type="text/javascript">
+	if ('1733930802'!='[LBL{primary_master_eloqua_siteid}]')
+	{
+		var _elqQ = _elqQ || [];
+		_elqQ.push(['elqSetSiteId', '1733930802']);
+		_elqQ.push(['elqTrackPageView']);
+		(function ()
+	{
+	function async_load()
+	{
+		var s = document.createElement('script'); s.type = 'text/javascript';
+		s.async = true; s.src = 'http://www.atmel.com/System/Javascript/elqCfg.min.js';
+		var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+	}
+	if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+	else if (window.attachEvent) window.attachEvent('onload', async_load);
+	})();
+}
+</script>
+<div id="asf_page_header">
+	<div id="asf_search_box">        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/close.png" alt=""></a>
+          </span>
+        </div>
+</div>
+	<div id="asf_title"><h1>Atmel Software Framework</h1></div>
+</div>
+<div id="asf_page_content">
+	<div id="asf_side_menu">
+		<ul class="linklist">
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/index.html">Home</a></li>
+			<li class="category">Features</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_boards.html">ASF-Boards</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_can_lin.html">ASF-CAN/LIN</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_components.html">ASF-Components</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_drivers.html">ASF-Drivers</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_dsp.html">ASF-DSP</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_fs.html">ASF-FS</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_gfx.html">ASF-GFX</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_sensors.html">ASF-Sensors</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_services.html">ASF-Services</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/asf_usb.html">ASF-USB</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/3rd_party.html">3rd Party</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/cmsis.html">CMSIS</a></li>
+			</div>
+			<li class="category">Documentation</li>
+			<div class="">
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/architecture.html">ASF Architecture</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/dyn/resources/prod_documents/doc8432.pdf">Reference Manual</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/api.html">API</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/applications.html">Applications</a></li>
+				<li class="sublink"><a href="http://asf.atmel.com/docs/3.16.0/unit_tests.html">Unit-Tests</a></li>
+				<li class="sublink"><a href="http://www.atmel.com/asf">Release Notes</a></li>
+			</div>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/get_started.html">Get Started</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/download.html">Download</a></li>
+			<li class="toplink"><a href="http://asf.atmel.com/docs/3.16.0/bug_tracker.html">Bug Tracker</a></li>
+		</ul>
+	</div>
+	<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<!-- end header part -->
+<!-- Generated by Doxygen 1.8.5 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Search');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/pages.html"><span>Related&nbsp;Pages</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/modules.html"><span>Modules</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/annotated.html"><span>Data&nbsp;Structures</span></a></li>
+      <li><a href="http://asf.atmel.com/docs/3.16.0/samd21/html/files.html"><span>Files</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive" style="display: none;">
+        <span class="left">
+          <img id="MSearchSelect" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/mag_sel.png" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" alt="">
+          <input type="text" id="MSearchField" value="Search" accesskey="S" onfocus="searchBox.OnSearchFieldFocus(true)" onblur="searchBox.OnSearchFieldFocus(false)" onkeyup="searchBox.OnSearchFieldChange(event)">
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/close.png" alt=""></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">•</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&nbsp;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&nbsp;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/saved_resource.html">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#groups">Modules</a> |
+<a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#nested-classes">Data Structures</a> |
+<a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#enum-members">Enumerations</a>  </div>
+  <div class="headertitle">
+<div class="title">SAM D20/D21/R21 Port Driver (PORT)</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader"> </h2>
+<p>This driver for SAM D20/D21/R21 devices provides an interface for the configuration and management of the device's General Purpose Input/Output (GPIO) pin functionality, for manual pin state reading and writing. </p>
+<p>The following peripherals are used by this module:</p>
+<ul>
+<li>PORT (GPIO Management)</li>
+</ul>
+<p>The outline of this documentation is as follows:</p>
+<ul>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_prerequisites">Prerequisites</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_module_overview">Module Overview</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_special_considerations">Special Considerations</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_extra_info">Extra Information</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_examples">Examples</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_api_overview">API Overview</a></li>
+</ul>
+<h1><a class="anchor" id="asfdoc_sam0_port_prerequisites"></a>
+Prerequisites</h1>
+<p>There are no prerequisites for this module.</p>
+<h1><a class="anchor" id="asfdoc_sam0_port_module_overview"></a>
+Module Overview</h1>
+<p>The device GPIO (PORT) module provides an interface between the user application logic and external hardware peripherals, when general pin state manipulation is required. This driver provides an easy-to-use interface to the physical pin input samplers and output drivers, so that pins can be read from or written to for general purpose external hardware control.</p>
+<h2><a class="anchor" id="asfdoc_sam0_port_module_overview_pin_numbering"></a>
+Physical and Logical GPIO Pins</h2>
+<p>SAM D20/D21/R21 devices use two naming conventions for the I/O pins in the device; one physical, and one logical. Each physical pin on a device package is assigned both a physical port and pin identifier (e.g. "PORTA.0") as well as a monotonically incrementing logical GPIO number (e.g. "GPIO0"). While the former is used to map physical pins to their physical internal device module counterparts, for simplicity the design of this driver uses the logical GPIO numbers instead.</p>
+<h2><a class="anchor" id="asfdoc_sam0_port_module_overview_physical"></a>
+Physical Connection</h2>
+<p><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#asfdoc_sam0_port_module_int_connections">The diagram below</a> shows how this module is interconnected within the device.</p>
+<p><a class="anchor" id="asfdoc_sam0_port_module_int_connections"></a></p>
+<div align="center">
+<img src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/dot_inline_dotgraph_1.gif" alt="dot_inline_dotgraph_1.gif" border="0" usemap="#dot_inline_dotgraph_1.map">
+<map name="dot_inline_dotgraph_1.map" id="dot_inline_dotgraph_1.map"></map>
+</div>
+<h1><a class="anchor" id="asfdoc_sam0_port_special_considerations"></a>
+Special Considerations</h1>
+<p>The SAM D20/D21/R21 port pin input sampler can be disabled when the pin is configured in pure output mode to save power; reading the pin state of a pin configured in output-only mode will read the logical output state that was last set.</p>
+<h1><a class="anchor" id="asfdoc_sam0_port_extra_info"></a>
+Extra Information</h1>
+<p>For extra information see <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_extra.html">Extra Information for PORT Driver</a>. This includes:</p>
+<ul>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_extra.html#asfdoc_sam0_port_extra_acronyms">Acronyms</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_extra.html#asfdoc_sam0_port_extra_dependencies">Dependencies</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_extra.html#asfdoc_sam0_port_extra_errata">Errata</a></li>
+<li><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_extra.html#asfdoc_sam0_port_extra_history">Module History</a></li>
+</ul>
+<h1><a class="anchor" id="asfdoc_sam0_port_examples"></a>
+Examples</h1>
+<p>For a list of examples related to this driver, see <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/asfdoc_sam0_port_exqsg.html">Examples for PORT Driver</a>.</p>
+<h1><a class="anchor" id="asfdoc_sam0_port_api_overview"></a>
+API Overview</h1>
+<table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__auto__asfdoc__sam0__port__group__quickstart"><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__auto__asfdoc__sam0__port__group__quickstart.html">Quick Start Guide(s)</a></td></tr>
+<tr class="memdesc:group__auto__asfdoc__sam0__port__group__quickstart"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">In this section you can find a list of all Quick Start guides related to the <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html">SAM D20/D21/R21 Port Driver (PORT)</a>. <br></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin configuration structure.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#details">More...</a><br></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gabe12893c067f9b011ece79c1bf1b128a"><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gabe12893c067f9b011ece79c1bf1b128a">port_pin_dir</a> { <br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ggabe12893c067f9b011ece79c1bf1b128aacfdf36142de0378cd9927b9c00e2f7a6">PORT_PIN_DIR_INPUT</a> = SYSTEM_PINMUX_PIN_DIR_INPUT, 
+<br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ggabe12893c067f9b011ece79c1bf1b128aaa2cda8b4095bfaf6f354f113947a3463">PORT_PIN_DIR_OUTPUT</a> = SYSTEM_PINMUX_PIN_DIR_OUTPUT, 
+<br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ggabe12893c067f9b011ece79c1bf1b128aae3d3fdfe355c7727ea36948da3b848ad">PORT_PIN_DIR_OUTPUT_WTH_READBACK</a> = SYSTEM_PINMUX_PIN_DIR_OUTPUT_WITH_READBACK
+<br>
+ }</td></tr>
+<tr class="memdesc:gabe12893c067f9b011ece79c1bf1b128a"><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin direction configuration enum.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gabe12893c067f9b011ece79c1bf1b128a">More...</a><br></td></tr>
+<tr class="separator:gabe12893c067f9b011ece79c1bf1b128a"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga1f47828261f5b7ac5f864b42981a2004"><td class="memItemLeft" align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1f47828261f5b7ac5f864b42981a2004">port_pin_pull</a> { <br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gga1f47828261f5b7ac5f864b42981a2004ab178b34fb381794e7f550b14ff08a302">PORT_PIN_PULL_NONE</a> = SYSTEM_PINMUX_PIN_PULL_NONE, 
+<br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gga1f47828261f5b7ac5f864b42981a2004a6505b9a836a818d1f2c8a248b9ac8073">PORT_PIN_PULL_UP</a> = SYSTEM_PINMUX_PIN_PULL_UP, 
+<br>
+&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gga1f47828261f5b7ac5f864b42981a2004a2665866a5f05266cc8fa78da60ebc19d">PORT_PIN_PULL_DOWN</a> = SYSTEM_PINMUX_PIN_PULL_DOWN
+<br>
+ }</td></tr>
+<tr class="memdesc:ga1f47828261f5b7ac5f864b42981a2004"><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin input pull configuration enum.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1f47828261f5b7ac5f864b42981a2004">More...</a><br></td></tr>
+<tr class="separator:ga1f47828261f5b7ac5f864b42981a2004"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+PORT Alias Macros</h2></td></tr>
+<tr class="memitem:ga7c8a7f98a98d8cb125dd57a66720ab30"><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga7c8a7f98a98d8cb125dd57a66720ab30">PORTA</a>&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[0]</td></tr>
+<tr class="memdesc:ga7c8a7f98a98d8cb125dd57a66720ab30"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convenience definition for GPIO module group A on the device (if available).  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga7c8a7f98a98d8cb125dd57a66720ab30">More...</a><br></td></tr>
+<tr class="separator:ga7c8a7f98a98d8cb125dd57a66720ab30"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga09a0c85cd3da09d9cdf63a5ac4c39f77"><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga09a0c85cd3da09d9cdf63a5ac4c39f77">PORTB</a>&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[1]</td></tr>
+<tr class="memdesc:ga09a0c85cd3da09d9cdf63a5ac4c39f77"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convenience definition for GPIO module group B on the device (if available).  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga09a0c85cd3da09d9cdf63a5ac4c39f77">More...</a><br></td></tr>
+<tr class="separator:ga09a0c85cd3da09d9cdf63a5ac4c39f77"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga68fea88642279a70246e026e7221b0a5"><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga68fea88642279a70246e026e7221b0a5">PORTC</a>&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[2]</td></tr>
+<tr class="memdesc:ga68fea88642279a70246e026e7221b0a5"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convenience definition for GPIO module group C on the device (if available).  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga68fea88642279a70246e026e7221b0a5">More...</a><br></td></tr>
+<tr class="separator:ga68fea88642279a70246e026e7221b0a5"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga3e6a2517db4f9cb7c9037adf0aefe79b"><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga3e6a2517db4f9cb7c9037adf0aefe79b">PORTD</a>&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[3]</td></tr>
+<tr class="memdesc:ga3e6a2517db4f9cb7c9037adf0aefe79b"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Convenience definition for GPIO module group D on the device (if available).  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga3e6a2517db4f9cb7c9037adf0aefe79b">More...</a><br></td></tr>
+<tr class="separator:ga3e6a2517db4f9cb7c9037adf0aefe79b"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+State reading/writing (physical group orientated)</h2></td></tr>
+<tr class="memitem:gaf86e5428a26974440873f539bc0f5a9d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">port_get_group_from_gpio_pin</a> (const uint8_t gpio_pin)</td></tr>
+<tr class="memdesc:gaf86e5428a26974440873f539bc0f5a9d"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the PORT module group instance from a given GPIO pin number.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">More...</a><br></td></tr>
+<tr class="separator:gaf86e5428a26974440873f539bc0f5a9d"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:gaa2a1084757e0a11674e0ab0659809d17"><td class="memItemLeft" align="right" valign="top">static uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaa2a1084757e0a11674e0ab0659809d17">port_group_get_input_level</a> (const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const port, const uint32_t mask)</td></tr>
+<tr class="memdesc:gaa2a1084757e0a11674e0ab0659809d17"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the state of a group of port pins that are configured as inputs.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaa2a1084757e0a11674e0ab0659809d17">More...</a><br></td></tr>
+<tr class="separator:gaa2a1084757e0a11674e0ab0659809d17"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga86282f88edf63506cc0bdc30a47dbc79"><td class="memItemLeft" align="right" valign="top">static uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga86282f88edf63506cc0bdc30a47dbc79">port_group_get_output_level</a> (const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const port, const uint32_t mask)</td></tr>
+<tr class="memdesc:ga86282f88edf63506cc0bdc30a47dbc79"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the state of a group of port pins that are configured as outputs.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga86282f88edf63506cc0bdc30a47dbc79">More...</a><br></td></tr>
+<tr class="separator:ga86282f88edf63506cc0bdc30a47dbc79"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga1a5bd7536245d4a430307b19bb951572"><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1a5bd7536245d4a430307b19bb951572">port_group_set_output_level</a> (<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const port, const uint32_t mask, const uint32_t level_mask)</td></tr>
+<tr class="memdesc:ga1a5bd7536245d4a430307b19bb951572"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the state of a group of port pins that are configured as outputs.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1a5bd7536245d4a430307b19bb951572">More...</a><br></td></tr>
+<tr class="separator:ga1a5bd7536245d4a430307b19bb951572"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga4ccf527fbec9dbd3c98da9c07723d8cf"><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga4ccf527fbec9dbd3c98da9c07723d8cf">port_group_toggle_output_level</a> (<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const port, const uint32_t mask)</td></tr>
+<tr class="memdesc:ga4ccf527fbec9dbd3c98da9c07723d8cf"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles the state of a group of port pins that are configured as an outputs.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga4ccf527fbec9dbd3c98da9c07723d8cf">More...</a><br></td></tr>
+<tr class="separator:ga4ccf527fbec9dbd3c98da9c07723d8cf"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Configuration and initialization</h2></td></tr>
+<tr class="memitem:ga93d10a3a13a20211ad64c7647c089689"><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga93d10a3a13a20211ad64c7647c089689">port_get_config_defaults</a> (struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const config)</td></tr>
+<tr class="memdesc:ga93d10a3a13a20211ad64c7647c089689"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Initializes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin/group configuration structure to defaults.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga93d10a3a13a20211ad64c7647c089689">More...</a><br></td></tr>
+<tr class="separator:ga93d10a3a13a20211ad64c7647c089689"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:gad21f235037f2d75ee3e7c08ba8b239c5"><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gad21f235037f2d75ee3e7c08ba8b239c5">port_pin_set_config</a> (const uint8_t gpio_pin, const struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const config)</td></tr>
+<tr class="memdesc:gad21f235037f2d75ee3e7c08ba8b239c5"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Writes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin configuration to the hardware module.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gad21f235037f2d75ee3e7c08ba8b239c5">More...</a><br></td></tr>
+<tr class="separator:gad21f235037f2d75ee3e7c08ba8b239c5"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga7b832928bee6911ac7c9f18df8a5cf4a"><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga7b832928bee6911ac7c9f18df8a5cf4a">port_group_set_config</a> (<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const port, const uint32_t mask, const struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const config)</td></tr>
+<tr class="memdesc:ga7b832928bee6911ac7c9f18df8a5cf4a"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Writes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> group configuration group to the hardware module.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga7b832928bee6911ac7c9f18df8a5cf4a">More...</a><br></td></tr>
+<tr class="separator:ga7b832928bee6911ac7c9f18df8a5cf4a"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table><table class="memberdecls">
+<tbody><tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+State reading/writing (logical pin orientated)</h2></td></tr>
+<tr class="memitem:gae51c8c56c764327020b4d4491750c9fe"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gae51c8c56c764327020b4d4491750c9fe">port_pin_get_input_level</a> (const uint8_t gpio_pin)</td></tr>
+<tr class="memdesc:gae51c8c56c764327020b4d4491750c9fe"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the state of a port pin that is configured as an input.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gae51c8c56c764327020b4d4491750c9fe">More...</a><br></td></tr>
+<tr class="separator:gae51c8c56c764327020b4d4491750c9fe"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga968b9d5260401d3e98105a4875f2fb51"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga968b9d5260401d3e98105a4875f2fb51">port_pin_get_output_level</a> (const uint8_t gpio_pin)</td></tr>
+<tr class="memdesc:ga968b9d5260401d3e98105a4875f2fb51"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Retrieves the state of a port pin that is configured as an output.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga968b9d5260401d3e98105a4875f2fb51">More...</a><br></td></tr>
+<tr class="separator:ga968b9d5260401d3e98105a4875f2fb51"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga1c7cdb3bc85989f6b76945cbac1547a8"><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1c7cdb3bc85989f6b76945cbac1547a8">port_pin_set_output_level</a> (const uint8_t gpio_pin, const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a> level)</td></tr>
+<tr class="memdesc:ga1c7cdb3bc85989f6b76945cbac1547a8"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the state of a port pin that is configured as an output.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1c7cdb3bc85989f6b76945cbac1547a8">More...</a><br></td></tr>
+<tr class="separator:ga1c7cdb3bc85989f6b76945cbac1547a8"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+<tr class="memitem:ga09324be08e3235f8916333bde9d47007"><td class="memItemLeft" align="right" valign="top">static void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga09324be08e3235f8916333bde9d47007">port_pin_toggle_output_level</a> (const uint8_t gpio_pin)</td></tr>
+<tr class="memdesc:ga09324be08e3235f8916333bde9d47007"><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Toggles the state of a port pin that is configured as an output.  <a href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga09324be08e3235f8916333bde9d47007">More...</a><br></td></tr>
+<tr class="separator:ga09324be08e3235f8916333bde9d47007"><td class="memSeparator" colspan="2">&nbsp;</td></tr>
+</tbody></table>
+<h2 class="groupheader"> </h2>
+<a class="anchor" id="ga7c8a7f98a98d8cb125dd57a66720ab30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">#define PORTA&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[0]</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Convenience definition for GPIO module group A on the device (if available). </p>
+
+</div>
+</div>
+<a class="anchor" id="ga09a0c85cd3da09d9cdf63a5ac4c39f77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">#define PORTB&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[1]</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Convenience definition for GPIO module group B on the device (if available). </p>
+
+</div>
+</div>
+<a class="anchor" id="ga68fea88642279a70246e026e7221b0a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">#define PORTC&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[2]</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Convenience definition for GPIO module group C on the device (if available). </p>
+
+</div>
+</div>
+<a class="anchor" id="ga3e6a2517db4f9cb7c9037adf0aefe79b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">#define PORTD&nbsp;&nbsp;&nbsp;<a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group___s_a_m_d21_j17_a__base.html#ga614217d263be1fb1a5f76e2ff7be19a2">PORT</a>-&gt;Group[3]</td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Convenience definition for GPIO module group D on the device (if available). </p>
+
+</div>
+</div>
+<h2 class="groupheader"> </h2>
+<a class="anchor" id="gabe12893c067f9b011ece79c1bf1b128a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">enum <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gabe12893c067f9b011ece79c1bf1b128a">port_pin_dir</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin direction configuration enum. </p>
+<p>Enum for the possible pin direction settings of the port pin configuration structure, to indicate the direction the pin should use. </p>
+<table class="fieldtable">
+<tbody><tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ggabe12893c067f9b011ece79c1bf1b128aacfdf36142de0378cd9927b9c00e2f7a6"></a>PORT_PIN_DIR_INPUT</em>&nbsp;</td><td class="fielddoc">
+<p>The pin's input buffer should be enabled, so that the pin state can be read. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabe12893c067f9b011ece79c1bf1b128aaa2cda8b4095bfaf6f354f113947a3463"></a>PORT_PIN_DIR_OUTPUT</em>&nbsp;</td><td class="fielddoc">
+<p>The pin's output buffer should be enabled, so that the pin state can be set. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="ggabe12893c067f9b011ece79c1bf1b128aae3d3fdfe355c7727ea36948da3b848ad"></a>PORT_PIN_DIR_OUTPUT_WTH_READBACK</em>&nbsp;</td><td class="fielddoc">
+<p>The pin's output and input buffers should be enabled, so that the pin state can be set and read back. </p>
+</td></tr>
+</tbody></table>
+
+</div>
+</div>
+<a class="anchor" id="ga1f47828261f5b7ac5f864b42981a2004"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">enum <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1f47828261f5b7ac5f864b42981a2004">port_pin_pull</a></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin input pull configuration enum. </p>
+<p>Enum for the possible pin pull settings of the port pin configuration structure, to indicate the type of logic level pull the pin should use. </p>
+<table class="fieldtable">
+<tbody><tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="gga1f47828261f5b7ac5f864b42981a2004ab178b34fb381794e7f550b14ff08a302"></a>PORT_PIN_PULL_NONE</em>&nbsp;</td><td class="fielddoc">
+<p>No logical pull should be applied to the pin. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f47828261f5b7ac5f864b42981a2004a6505b9a836a818d1f2c8a248b9ac8073"></a>PORT_PIN_PULL_UP</em>&nbsp;</td><td class="fielddoc">
+<p>Pin should be pulled up when idle. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="gga1f47828261f5b7ac5f864b42981a2004a2665866a5f05266cc8fa78da60ebc19d"></a>PORT_PIN_PULL_DOWN</em>&nbsp;</td><td class="fielddoc">
+<p>Pin should be pulled down when idle. </p>
+</td></tr>
+</tbody></table>
+
+</div>
+</div>
+<h2 class="groupheader"> </h2>
+<a class="anchor" id="ga93d10a3a13a20211ad64c7647c089689"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static void port_get_config_defaults </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const&nbsp;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Initializes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin/group configuration structure to defaults. </p>
+<p>Initializes a given <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin/group configuration structure to a set of known default values. This function should be called on all new instances of these configuration structures before being modified by the user application.</p>
+<p>The default configuration is as follows: </p>
+<ul>
+<li>Input mode with internal pullup enabled</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[out]</td><td class="paramname">config</td><td>Configuration structure to initialize to default values. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a359efa8177622e0f9470f67b5c0e2308">port_config::direction</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a2d18897db92dd88ea05e4fe5f800fd0f">port_config::input_pull</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ggabe12893c067f9b011ece79c1bf1b128aacfdf36142de0378cd9927b9c00e2f7a6">PORT_PIN_DIR_INPUT</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gga1f47828261f5b7ac5f864b42981a2004a6505b9a836a818d1f2c8a248b9ac8073">PORT_PIN_PULL_UP</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a9479f0709c8ca55df9a37b30dcf916c1">port_config::powersave</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common2__at25dfx__group.html#ga2a19dbbd70ce83fb4d3af304f49d7562">at25dfx_chip_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/sam0_2applications_2usb__msc__bootloader_2bootloader_2main_8c.html#a968c82c84fb475ea6d69239837c46f15">bootloader_system_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__pac__basic_8c.html#af2b6b02d62c1b3e6fb15babb1d4bb6d6">config_port_pins()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/thirdparty_2qtouch_2devspecific_2sam0_2samd_2examples_2example__mutlcap_2main_8c.html#a3db0fd42008c740f638c5726b6a38e79">configure_port_pins()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/tictactoe_8c.html#abe305e053fb0e9e4db4e112c38cb3511">init_buttons()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/delay__example_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga9bbd1c887e00a0f452bbdf876ed3bc05">oled1_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a17b4b2f447b5ba9807857727863f3e73">run_faultn_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a39b386e7bc9ec4a11dfcf13671e477ba">run_faultx_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a1d9a6987a1587210c4d09e87f777c68f">setup_extint_callback_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a2626869fd6e550d6cc1e0f33e02bd294">setup_extint_polled_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__sercom__spi__group.html#ga00f530d53458a8fd2f59c1fced8e8879">spi_attach_slave()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/ssd1306_8c.html#abcb28c55d07efc63da7d77c95f773877">ssd1306_interface_init()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__usb__dual__group.html#ga0fde414fe176d46e001e59b28df27d41">usb_dual_enable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaf86e5428a26974440873f539bc0f5a9d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a>* port_get_group_from_gpio_pin </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Retrieves the PORT module group instance from a given GPIO pin number. </p>
+<p>Retrieves the PORT module group instance associated with a given logical GPIO pin number.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to convert.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Base address of the associated PORT module. </dd></dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#ga983a321ee4f03f88879dfa79c26978ff">system_pinmux_get_group_from_gpio_pin()</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gae51c8c56c764327020b4d4491750c9fe">port_pin_get_input_level()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga968b9d5260401d3e98105a4875f2fb51">port_pin_get_output_level()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga1c7cdb3bc85989f6b76945cbac1547a8">port_pin_set_output_level()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#ga09324be08e3235f8916333bde9d47007">port_pin_toggle_output_level()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa2a1084757e0a11674e0ab0659809d17"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static uint32_t port_group_get_input_level </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const&nbsp;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>mask</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Retrieves the state of a group of port pins that are configured as inputs. </p>
+<p>Reads the current logic level of a port module's pins and returns the current levels as a bitmask.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Base of the PORT module to read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Mask of the port pin(s) to read.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the port pin(s) input buffers. </dd></dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a98613cc1bfe5fdc666400f0cb4dd9f2e">PortGroup::IN</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___i_n___type.html#a564c3c16335d1e27b97f191cd6a35c93">PORT_IN_Type::reg</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga86282f88edf63506cc0bdc30a47dbc79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static uint32_t port_group_get_output_level </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const&nbsp;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>mask</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Retrieves the state of a group of port pins that are configured as outputs. </p>
+<p>Reads the current logical output level of a port module's pins and returns the current levels as a bitmask.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>Base of the PORT module to read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Mask of the port pin(s) to read.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the port pin(s) output buffers. </dd></dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a865fdbe2a7cb1339868e58d9a244031c">PortGroup::OUT</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t___type.html#a7d650c5e9cf813ef1d2ab766ea658a1c">PORT_OUT_Type::reg</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga7b832928bee6911ac7c9f18df8a5cf4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">void port_group_set_config </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const&nbsp;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const&nbsp;</td>
+          <td class="paramname"><em>config</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Writes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> group configuration group to the hardware module. </p>
+<p>Writes out a given configuration of a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> group configuration to the hardware module.</p>
+<dl class="section note"><dt>Note</dt><dd>If the pin direction is set as an output, the pull-up/pull-down input configuration setting is ignored.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[out]</td><td class="paramname">port</td><td>Base of the PORT module to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Mask of the port pin(s) to configure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">config</td><td>Configuration settings for the pin group. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a49376a76efa41dfc4a0b27663eb75296">system_pinmux_config::direction</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a359efa8177622e0f9470f67b5c0e2308">port_config::direction</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#ab9c3289af6faf7aa5bb7f4ab150a56cf">system_pinmux_config::input_pull</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a2d18897db92dd88ea05e4fe5f800fd0f">port_config::input_pull</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a0ea0fe95ab984ace216ceeb71b8784f9">system_pinmux_config::mux_position</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a9479f0709c8ca55df9a37b30dcf916c1">port_config::powersave</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a254bdc25c9912ebf875fd7f377905bf3">system_pinmux_config::powersave</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#ga9598b7a64829a319eaa59573519c9131">system_pinmux_get_config_defaults()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#gaf212e7bc2a29cb57ab7b1130e4404a6b">SYSTEM_PINMUX_GPIO</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#ga7f19e634e8c05c0a84cebaf36054d78e">system_pinmux_group_set_config()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga1a5bd7536245d4a430307b19bb951572"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static void port_group_set_output_level </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const&nbsp;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>mask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>level_mask</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Sets the state of a group of port pins that are configured as outputs. </p>
+<p>Sets the current output level of a port module's pins to a given logic level.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[out]</td><td class="paramname">port</td><td>Base of the PORT module to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Mask of the port pin(s) to change. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level_mask</td><td>Mask of the port level(s) to set. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a817b54b38d64825d862ae2a5fc6386aa">PortGroup::OUTCLR</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a97265e4a39bd1fc6b0f28db7cb9fa4ae">PortGroup::OUTSET</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_c_l_r___type.html#a1ed1eeae9c749b110a66e0adb8235519">PORT_OUTCLR_Type::reg</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_s_e_t___type.html#ae93907b8ec7ad762e8abb7ba9764fe81">PORT_OUTSET_Type::reg</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga4ccf527fbec9dbd3c98da9c07723d8cf"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static void port_group_toggle_output_level </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html">PortGroup</a> *const&nbsp;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&nbsp;</td>
+          <td class="paramname"><em>mask</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Toggles the state of a group of port pins that are configured as an outputs. </p>
+<p>Toggles the current output levels of a port module's pins.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[out]</td><td class="paramname">port</td><td>Base of the PORT module to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Mask of the port pin(s) to toggle. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a5367798690cf523de14f6a7b16dd6765">PortGroup::OUTTGL</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_t_g_l___type.html#ad643ad27dece66db03fafdcac0b0190f">PORT_OUTTGL_Type::reg</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gae51c8c56c764327020b4d4491750c9fe"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a> port_pin_get_input_level </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Retrieves the state of a port pin that is configured as an input. </p>
+<p>Reads the current logic level of a port pin and returns the current level as a boolean value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to read.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the port pin's input buffer. </dd></dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a98613cc1bfe5fdc666400f0cb4dd9f2e">PortGroup::IN</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">port_get_group_from_gpio_pin()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___i_n___type.html#a564c3c16335d1e27b97f191cd6a35c93">PORT_IN_Type::reg</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__user__interface.html#gaa3d114d53801c39edf08cb84300640c1">button_pressed()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/sam0_2applications_2usb__msc__bootloader_2bootloader_2main_8c.html#abf303a443989bb4ca0f65ad52b657bcc">check_boot_mode()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__tcc__faultn_8c.html#a9f0046cbcea53b8e1cffca2cde40090b">eic_callback_to_clear_halt()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__extint__callback_8c.html#aadefe7117478cd410d85d6efc07b2bac">extint_detection_callback()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/tictactoe_8c.html#a64e98252ca66c7a57978c7941fb0eb49">get_button()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__extint__basic_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga72682197820d075013d4fb3a20949d15">oled1_get_button_state()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga82051592f1c994783d8cd7b401aa523f">oled1_get_led_state()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__sd__mmc__stack__group.html#ga0740e31de47d3db2d21f6bd23f216497">sd_mmc_is_write_protected()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__sd__mmc__stack__internal.html#ga23d90e0f4cf61a21d20ec12abb72406d">sd_mmc_select_slot()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/led__toggle_8c.html#a0393d8e2ce483eab088380070ea0dd1a">update_led_state()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga968b9d5260401d3e98105a4875f2fb51"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a> port_pin_get_output_level </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Retrieves the state of a port pin that is configured as an output. </p>
+<p>Reads the current logical output level of a port pin and returns the current level as a boolean value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to read.</td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the port pin's output buffer. </dd></dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a865fdbe2a7cb1339868e58d9a244031c">PortGroup::OUT</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">port_get_group_from_gpio_pin()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t___type.html#a7d650c5e9cf813ef1d2ab766ea658a1c">PORT_OUT_Type::reg</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gad21f235037f2d75ee3e7c08ba8b239c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">void port_pin_set_config </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const struct <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html">port_config</a> *const&nbsp;</td>
+          <td class="paramname"><em>config</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+</div><div class="memdoc">
+
+<p>Writes a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin configuration to the hardware module. </p>
+<p>Writes out a given configuration of a <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port.html" title="PORT APB hardware registers. ">Port</a> pin configuration to the hardware module.</p>
+<dl class="section note"><dt>Note</dt><dd>If the pin direction is set as an output, the pull-up/pull-down input configuration setting is ignored.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to configure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">config</td><td>Configuration settings for the pin. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/suite_8h.html#aab1e54dcc40192f9704e8b252635450f">Assert</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a49376a76efa41dfc4a0b27663eb75296">system_pinmux_config::direction</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a359efa8177622e0f9470f67b5c0e2308">port_config::direction</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#ab9c3289af6faf7aa5bb7f4ab150a56cf">system_pinmux_config::input_pull</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a2d18897db92dd88ea05e4fe5f800fd0f">port_config::input_pull</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a0ea0fe95ab984ace216ceeb71b8784f9">system_pinmux_config::mux_position</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structport__config.html#a9479f0709c8ca55df9a37b30dcf916c1">port_config::powersave</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/structsystem__pinmux__config.html#a254bdc25c9912ebf875fd7f377905bf3">system_pinmux_config::powersave</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#ga9598b7a64829a319eaa59573519c9131">system_pinmux_get_config_defaults()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#gaf212e7bc2a29cb57ab7b1130e4404a6b">SYSTEM_PINMUX_GPIO</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__system__pinmux__group.html#ga4aff9a23bc1233d74847bcdee4494439">system_pinmux_pin_set_config()</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common2__at25dfx__group.html#ga2a19dbbd70ce83fb4d3af304f49d7562">at25dfx_chip_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/sam0_2applications_2usb__msc__bootloader_2bootloader_2main_8c.html#a968c82c84fb475ea6d69239837c46f15">bootloader_system_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__pac__basic_8c.html#af2b6b02d62c1b3e6fb15babb1d4bb6d6">config_port_pins()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/thirdparty_2qtouch_2devspecific_2sam0_2samd_2examples_2example__mutlcap_2main_8c.html#a3db0fd42008c740f638c5726b6a38e79">configure_port_pins()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/tictactoe_8c.html#abe305e053fb0e9e4db4e112c38cb3511">init_buttons()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__mac__gen__int.html#gab2ca3636eee5877ac836ad1938c56c00">mac_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/delay__example_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga9bbd1c887e00a0f452bbdf876ed3bc05">oled1_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a17b4b2f447b5ba9807857727863f3e73">run_faultn_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a39b386e7bc9ec4a11dfcf13671e477ba">run_faultx_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a1d9a6987a1587210c4d09e87f777c68f">setup_extint_callback_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a2626869fd6e550d6cc1e0f33e02bd294">setup_extint_polled_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__sercom__spi__group.html#ga00f530d53458a8fd2f59c1fced8e8879">spi_attach_slave()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/ssd1306_8c.html#abcb28c55d07efc63da7d77c95f773877">ssd1306_interface_init()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__usb__dual__group.html#ga0fde414fe176d46e001e59b28df27d41">usb_dual_enable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga1c7cdb3bc85989f6b76945cbac1547a8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static void port_pin_set_output_level </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__sam0__utils.html#ga97a80ca1602ebf2303258971a2c938e2">bool</a>&nbsp;</td>
+          <td class="paramname"><em>level</em>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Sets the state of a port pin that is configured as an output. </p>
+<p>Sets the current output level of a port pin to a given logic level.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to write to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Logical level to set the given pin to. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a817b54b38d64825d862ae2a5fc6386aa">PortGroup::OUTCLR</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a97265e4a39bd1fc6b0f28db7cb9fa4ae">PortGroup::OUTSET</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">port_get_group_from_gpio_pin()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_c_l_r___type.html#a1ed1eeae9c749b110a66e0adb8235519">PORT_OUTCLR_Type::reg</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_s_e_t___type.html#ae93907b8ec7ad762e8abb7ba9764fe81">PORT_OUTSET_Type::reg</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/at25dfx_8c.html#ac4f2aeb9745bbeb9d132af65195f2fec">_at25dfx_chip_deselect()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/at25dfx_8c.html#ae2a4bd3b0a1422f4b59072748c92a69a">_at25dfx_chip_select()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__common2__at25dfx__group.html#ga2a19dbbd70ce83fb4d3af304f49d7562">at25dfx_chip_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__extint__callback_8c.html#aadefe7117478cd410d85d6efc07b2bac">extint_detection_callback()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__mcl.html#gac4fd45dde11ba64cf0aa58c37488bb01">mac_t_gts_cb()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/delay__example_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga9bbd1c887e00a0f452bbdf876ed3bc05">oled1_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga595de42da662f12ecb9b27ad95199107">oled1_set_led_state()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/mac__data__ind_8c.html#ae55826615ead35d8066340bc9efac88c">process_data_ind_not_transient()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/sam0_2applications_2usb__msc__bootloader_2bootloader_2main_8c.html#aa82ce9c1a9628a4f24fc8475f31e2f79">program_memory()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a2b54363584284c2d9497ed1b74d15cbd">run_extint_callback_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a812034a2dd7ebf20923adf00b270c34d">run_extint_polled_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a17b4b2f447b5ba9807857727863f3e73">run_faultn_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2tcc_2unit__test_2unit__test_8c.html#a39b386e7bc9ec4a11dfcf13671e477ba">run_faultx_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a1d9a6987a1587210c4d09e87f777c68f">setup_extint_callback_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/drivers_2extint_2unit__test_2unit__test_8c.html#a2626869fd6e550d6cc1e0f33e02bd294">setup_extint_polled_mode_test()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__sercom__spi__group.html#ga00f530d53458a8fd2f59c1fced8e8879">spi_attach_slave()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__sercom__spi__group.html#gaff6f75d83ec5251e6d1d42830b8af05f">spi_select_slave()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ssd1306__oled__controller__group.html#gab1c5ee3863a70210c8a3fb2699f85902">ssd1306_hard_reset()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ssd1306__oled__controller__group.html#ga8c501b9eb4c6efb3f7d387a8d5390058">ssd1306_init()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ssd1306__oled__controller__group.html#ga9d4a81885131772f68524c5945849aaa">ssd1306_write_command()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__ssd1306__oled__controller__group.html#gaa63cc5ed07050a1139ac53b99c35a94d">ssd1306_write_data()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/i2c__slave__bootloader_8c.html#ac6ebc3411e08490f27384745a4e2aa9e">start_application()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/led__toggle_8c.html#a0393d8e2ce483eab088380070ea0dd1a">update_led_state()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__wdt__callback_8c.html#ab0ac8cd5f8e1203f05f9eb2a9de8d707">watchdog_early_warning_callback()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/xosc32k__failure__detector_8c.html#ad6e30762b814dd6f02e0889d656fa592">xosc32k_fail_callback()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/xosc32k__failure__detector_8c.html#a13257843bed415fad94478e7778940b0">xosc32k_ok_callback()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga09324be08e3235f8916333bde9d47007"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tbody><tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tbody><tr>
+          <td class="memname">static void port_pin_toggle_output_level </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&nbsp;</td>
+          <td class="paramname"><em>gpio_pin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</tbody></table>
+</div><div class="memdoc">
+
+<p>Toggles the state of a port pin that is configured as an output. </p>
+<p>Toggles the current output level of a port pin.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tbody><tr><td class="paramdir">[in]</td><td class="paramname">gpio_pin</td><td>Index of the GPIO pin to toggle. </td></tr>
+  </tbody></table>
+  </dd>
+</dl>
+
+<p>References <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/struct_port_group.html#a5367798690cf523de14f6a7b16dd6765">PortGroup::OUTTGL</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__asfdoc__sam0__port__group.html#gaf86e5428a26974440873f539bc0f5a9d">port_get_group_from_gpio_pin()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/union_p_o_r_t___o_u_t_t_g_l___type.html#ad643ad27dece66db03fafdcac0b0190f">PORT_OUTTGL_Type::reg</a>.</p>
+
+<p>Referenced by <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__events__interrupt__hook_8c.html#a24fbb2e5e9cdc5ddb8672e4d6e0b5b8d">event_counter()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__mcl.html#ga17bce69f7c11ebde3636e27aed94cd18">handle_gts_data_tx_end()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__group__mcl.html#ga3a56ddfd0ebec169a2d6c825f4557f72">mac_process_data_frame()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/delay__example_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/group__oled1__xpro__io__group.html#ga0b7d1e8a7ab921a6657965e8039870f5">oled1_toggle_led_state()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/mac__data__ind_8c.html#ae55826615ead35d8066340bc9efac88c">process_data_ind_not_transient()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__rtc__calendar__callback_8c.html#a197bc1169cea0f08f8a8ca772286331c">rtc_match_callback()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__rtc__count__callback_8c.html#adc80d9930c6c84871ec420a595aad4b8">rtc_overflow_callback()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__tc__timer_8c.html#aeacaaf4b5e45f79edfc5f5d7919fb2a8">tc_callback_to_toggle_led()</a>, <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__tcc__timer_8c.html#a06ca66cdf69ad3944503d9d8381958f7">tcc_callback_to_toggle_led()</a>, and <a class="el" href="http://asf.atmel.com/docs/3.16.0/samd21/html/qs__usart__callback_8c.html#a6e71200abbba66568f71c0fc3cf7cf2a">usart_write_callback()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- asf_page_content -->
+<hr class="footer"><address class="footer"><small>
+Generated on Tue Jun 17 2014 08:35:35 for SAMD21 by &nbsp;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="./ASF Source Code Documentation-SAM D20-D21-R21 Port Driver PORT_files/doxygen.png" alt="doxygen">
+</a> 1.8.5
+</small></address>
+
+
+</body></html>
