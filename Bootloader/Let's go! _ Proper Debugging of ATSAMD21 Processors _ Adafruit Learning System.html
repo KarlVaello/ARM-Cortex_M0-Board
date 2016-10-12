@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go -->
+<html lang="en-US" class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js-ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="mask-icon" href="https://learn.adafruit.com/assets/adafruit_favicon-d77f206e6cc65b40101b6e5b8987f7c35cb6a283ea73c0adad50c37f7347c61a.svg" color="#000000">
+<link rel="shortcut icon" type="image/x-icon" href="https://learn.adafruit.com/assets/favicon-0c79bd4bc582e6d4cf3afe417bd1e28120527c09d92c08a6464690c5bf6b85f4.ico">
+<title>Let's go! | Proper Debugging of ATSAMD21 Processors | Adafruit Learning System</title>
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="YnweOUR0ilGRPO4jIj69jxOWU3PRL119pAmuK5y8aeAzqQgvETG8LqH6tjHz9wR5lhp84RZ0GRZ1mGU7+RoIOQ==">
+<link rel="alternate" type="application/atom+xml" title="ATOM" href="https://learn.adafruit.com/feed">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://learn.adafruit.com/feed.rss">
+<link rel="stylesheet" media="screen" href="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/fonts.css">
+<link rel="stylesheet" media="screen" href="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/application-ca39a8c498db7d2305d04d256d2a94f6376529ccd12f07e30a2c230b24cae93a.css">
+<!--[if lt IE 9]>
+    <script src="/assets/ie.html5.js"></script>
+    <script src="/assets/ie.respond.js"></script>
+  <![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@adafruit">
+<meta name="twitter:title" content="Proper Debugging of ATSAMD21 Processors">
+<meta name="twitter:description" content="Step in, step out, step over and repeat!">
+<meta name="twitter:image:src" content="https://learn.adafruit.comhttps://cdn-learn.adafruit.com/guides/images/000/001/245/medium800/debugging.png">
+<meta name="twitter:domain" content="https://learn.adafruit.com">
+<link rel="canonical" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script type="text/javascript" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/308175db61"></script><script src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/nr-995.min.js.descarga"></script><script type="text/javascript" async="" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/ec.js.descarga"></script><script async="" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/analytics.js.descarga"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"308175db61","applicationID":"3238541","transactionName":"cVZXRUFeWghRShtEVlVcSh5AWVkT","queueTime":0,"applicationTime":61,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UQUGWV5XGwACV1lXAwA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!p){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function l(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:l,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a};return g}function i(){return new r}function a(){p=!0,u=l.backlog={}}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o(),p=!1;l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-995.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<!--[if lte IE 9]>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+<body class="application pages show">
+<div id="outer-wrapper">
+<div id="inner-wrapper">
+<header id="adafruit-header">
+<div id="small-header-content" class="container visible-xs">
+<a id="small-header-menu-button" class="menu-link" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#small-header-nav">
+<i class="fa fa-bars"> </i>
+</a>
+<div class="small-header-logo">
+<a href="https://www.adafruit.com/">
+<img id="small-logo" height="50" width="50" alt="Adafruit Logo" title="Breast Cancer Awareness Month" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/adafruit_logo_small.png">
+</a> </div>
+<a class="small-header-cart" href="https://www.adafruit.com/shopping_cart">
+<span class="small-cart-count">0</span>
+<i class="fa fa-shopping-cart"></i>
+</a> </div>
+<nav id="small-header-nav" role="navigation" class="visible-xs">
+<div class="block">
+<ul>
+<li>
+<div id="small-search-wrapper">
+<div id="small-search-inner-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="mobile-search" style="display:none;">Search</label>
+<input id="mobile-search" type="text" name="q" placeholder="Search Adafruit">
+<i class="fa fa-search"></i>
+</form>
+</div>
+</div>
+</li>
+<li>
+<a href="https://www.adafruit.com/categories">SHOP</a>
+</li>
+<li>
+<a href="https://blog.adafruit.com/">BLOG</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/">LEARN</a>
+</li>
+<li>
+<a href="https://forums.adafruit.com/">FORUMS</a>
+</li>
+<li>
+<a href="https://www.youtube.com/adafruit">VIDEOS</a>
+</li>
+<li>
+<a href="https://learn.adafruit.com/users/sign_in">SIGN IN</a>
+</li>
+<li>
+<a class="close-btn" id="small-nav-close-button" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#top">CLOSE MENU</a>
+</li>
+</ul>
+</div>
+</nav>
+<div id="header-content" class="container hidden-xs">
+<div id="header-profile">
+<a id="header-cart" href="https://www.adafruit.com/shopping_cart">0 Items <i class="fa fa-shopping-cart"></i></a> <div id="account">
+<a href="https://learn.adafruit.com/users/sign_in">Sign In</a>
+</div>
+<div id="search-wrapper">
+<form action="https://learn.adafruit.com/search" method="get">
+<label for="search" style="display:none;">Search</label>
+<input id="search" type="text" name="q" autocomplete="off" data-page="" ,="" data-app-id="W9DMM4OTH0" data-app-key="e613bcda3453b9ef887e2724362f9e57">
+          <i class="fa fa-search"></i>
+          <input type="submit" style="visibility: hidden; position: fixed;">
+        </form>
+      </div>
+    </div>
+    <div id="navigation">
+      <a href="https://www.adafruit.com/">
+        <img id="logo" width="172" height="60" alt="Adafruit Logo" title="Breast Cancer Awareness Month" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/logo_2x.png">
+</a>      <nav class="hover-menu">
+  <ul>
+    <li id="nav-shop" data-load="https://www.adafruit.com/api/flyouts/shop.html"><a href="https://www.adafruit.com/">SHOP</a>
+    </li>
+    <li id="nav-blog" data-load="https://blog.adafruit.com/adafruit-blog-flyouts"><a href="https://blog.adafruit.com/">BLOG</a>
+    </li>
+    <li id="nav-learn" data-load="https://learn.adafruit.com/api/hover-menu/flyouts/learn.html"><a href="https://learn.adafruit.com/">LEARN</a>
+    </li>
+    <li id="nav-forums"><a href="https://forums.adafruit.com/">FORUMS</a>
+    </li>
+    <li id="nav-forums"><a href="https://www.youtube.com/adafruit">VIDEOS</a>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+  </div>
+</header>
+
+      <div id="main-content">
+        <div id="page-wrapper">
+		<div id="content-wrapper" class="container" data-page-id="7067" data-guide-id="1245">
+			<div class="row">
+				<div class="sidebar-left-wrapper hidden-phone hidden-tablet col-lg-two-and-half col-md-3 col-sm-4 col-xs-12">
+					<div class="sidebar-left-content affix" data-clampedwidth=".sidebar-left-wrapper" style="width: 255px;">
+							<nav class="sidebar-left">
+		<div class="title-bar">
+				  <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/debugging.png" class="img img-responsive">
+
+		    <div class="title">
+			    <h1><a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/overview">Proper Debugging of ATSAMD21 Processors</a></h1>
+			    <span class="tagline"><a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/overview">Step in, step out, step over and repeat!</a></span>
+			  </div>
+	  </div>
+	  <ul class="page-parent nav">
+			  <li class="">
+      <a class="sidebar-parent" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/overview">Overview</a>
+      <span class="page-draft-status">
+      </span>
+</li>
+  <li class="">
+      <a class="sidebar-parent" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/install-software">Install Software</a>
+      <span class="page-draft-status">
+      </span>
+</li>
+  <li class="active">
+      <a class="sidebar-parent" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go">Let's go!</a>
+      <span class="page-draft-status">
+      </span>
+</li>
+  <li class="">
+      <a class="sidebar-parent" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/restoring-bootloader">Restoring Bootloader</a>
+      <span class="page-draft-status">
+      </span>
+</li>
+
+			<li class="single-page-spacer"></li>
+	      <li class="single-page-link"><a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0?view=all">Single Page</a></li>
+			<li><a href="https://cdn-learn.adafruit.com/downloads/pdf/proper-step-debugging-atsamd21-arduino-zero-m0.pdf">Download PDF</a></li>
+	  </ul>
+	</nav>
+	  <header class="sidebar-meta hidden-xs">
+    <h4>Contributors</h4>
+      <div><a href="https://learn.adafruit.com/users/adafruit2">lady ada</a></div>
+  </header>
+
+	  <header class="sidebar-meta hidden-xs">
+    <a class="feedback-link" title="Feedback? Corrections?" rel="nofollow" data-remote="true" data-method="get" href="https://learn.adafruit.com/pages/7067/settings_modal">
+          Feedback?  Corrections?
+</a>  </header>
+
+
+					</div>
+				</div>
+					<article class="col-lg-7 col-md-6 col-sm-8 col-xs-12">
+					<div id="categories">
+    <span class="category ">
+    <a href="https://learn.adafruit.com/category/arduino">ARDUINO</a>
+  </span>
+  <span class="category ">
+    <a href="https://learn.adafruit.com/category/feather">FEATHER</a>
+  </span>
+
+  
+  <span id="guide-favorite">
+  <a class="favorites-link category right red" title="" data-toggle="tooltip" data-placement="left" data-remote="true" rel="nofollow" data-method="post" href="https://learn.adafruit.com/guides/1245/favorites.js" data-original-title="Favorite this guide?">
+    <i class="fa fa-heart-o"></i>
+</a></span>
+</div>
+
+					<div class="content">
+							<div class="page-title-wrapper">
+								<h1 class="headline">
+									<span id="lets-go">Let's go!</span>
+								</h1>
+								    <div class="author">by
+      <a href="https://learn.adafruit.com/users/adafruit2">
+          <span class="name">lady ada</span>
+</a>    </div>
+
+							</div>
+							<div class="page-content">
+									      <div class="row-fluid build-alert alert-danger">
+        <div class="alert">
+          <i class="fa fa-exclamation-circle"></i>
+          Note that by uploading a debug sketch you will blow away the bootloader on your Arduino Zero or Feather M0, see the next section for re-loading it!
+        </div>
+      </div>
+      <div class="row-fluid build-text">
+        
+<p>OK now that we have all that software, the rest isn't too tough!</p>
+<h1>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#load-an-arduino-sketch-in-atmel-studio-7" class="anchor-link"><span class="fa fa-link"></span></a><span id="load-an-arduino-sketch-in-atmel-studio-7" class="anchor-link-target"></span>Load an Arduino Sketch in Atmel Studio 7</h1>
+<p>Start by launching Atmel Studio 7</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30772">
+              <img class="30772-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/772/medium260/arduino_1atmelstudio7.png?1456441975 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/772/medium640/arduino_1atmelstudio7.png?1456441975 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/772/medium800/arduino_1atmelstudio7.png?1456441975 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/772/large1024/arduino_1atmelstudio7.png?1456441975 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_1atmelstudio7.png" alt="arduino_1atmelstudio7.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Create a new Project</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30773">
+              <img class="30773-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/773/medium260/arduino_2newp.png?1456442003 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/773/medium640/arduino_2newp.png?1456442003 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/773/medium800/arduino_2newp.png?1456442003 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/773/large1024/arduino_2newp.png?1456442003 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_2newp.png" alt="arduino_2newp.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>And select <strong>Create project from Arduino sketch</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30774">
+              <img class="30774-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/774/medium260/arduino_3ard.png?1456442028 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/774/medium640/arduino_3ard.png?1456442028 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/774/medium800/arduino_3ard.png?1456442028 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/774/large1024/arduino_3ard.png?1456442028 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_3ard.png" alt="arduino_3ard.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Navigate to your arduino sketchfolder and select the sketch. I recommend starting with the easy-to-understand <strong>Blink</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30775">
+              <img class="30775-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/775/medium260/arduino_4blink.png?1456442069 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/775/medium640/arduino_4blink.png?1456442069 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/775/medium800/arduino_4blink.png?1456442069 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/775/large1024/arduino_4blink.png?1456442069 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_4blink.png" alt="arduino_4blink.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Also select the Arduino IDE location if necessary. For <strong>Board</strong> go with <strong>Arduino/Genuino Zero (Programming Port)</strong> and under Device, <strong>ATSAMD21G18A</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30777">
+              <img class="30777-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/777/medium260/arduino_6genuinozero.png?1456442143 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/777/medium640/arduino_6genuinozero.png?1456442143 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/777/medium800/arduino_6genuinozero.png?1456442143 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/777/large1024/arduino_6genuinozero.png?1456442143 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_6genuinozero.png" alt="arduino_6genuinozero.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>You'll see the following, where the sketch is in a window, you can edit the code here if you like. For now just leave it as is.</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30778">
+              <img class="30778-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/778/medium260/arduino_7loaded.png?1456442204 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/778/medium640/arduino_7loaded.png?1456442204 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/778/medium800/arduino_7loaded.png?1456442204 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/778/large1024/arduino_7loaded.png?1456442204 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_7loaded.png" alt="arduino_7loaded.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<h1>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#set-up-and-check-interface" class="anchor-link"><span class="fa fa-link"></span></a><span id="set-up-and-check-interface" class="anchor-link-target"></span>Set Up and Check Interface</h1>
+<p>OK next up we'll attach the chip &amp; debugger. You have two options:</p>
+<h2>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#arduino-zero-debug-port" class="anchor-link"><span class="fa fa-link"></span></a><span id="arduino-zero-debug-port" class="anchor-link-target"></span><strong>Arduino Zero Debug port</strong>
+</h2>
+<p>This is super easy, just connect a USB micro B cable to your Arduino Zero</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30779">
+              <img class="30779-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/779/medium260/arduino_2843-04.jpg?1456442492 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/779/medium640/arduino_2843-04.jpg?1456442492 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/779/medium800/arduino_2843-04.jpg?1456442492 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/779/large1024/arduino_2843-04.jpg?1456442492 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_2843-04.jpg" alt="arduino_2843-04.jpg">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-alert alert-warning">
+        <div class="alert">
+          <i class="fa fa-exclamation-circle"></i>
+          Make sure you're plugged into the DEBUG port not the 'native' port
+        </div>
+      </div>
+      <div class="row-fluid build-text">
+        
+<h2>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#j-link-to-swd" class="anchor-link"><span class="fa fa-link"></span></a><span id="j-link-to-swd" class="anchor-link-target"></span>J-Link to SWD</h2>
+<p>If you have a board without an EDBG chip on it, you can still debug, but you'll need a helper such as a J-Link. <a href="https://www.adafruit.com/products/2094">We like using this handy adapter board</a></p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30780">
+              <img class="30780-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/780/medium260/arduino_2094-03.jpg?1456442602 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/780/medium640/arduino_2094-03.jpg?1456442602 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/780/medium800/arduino_2094-03.jpg?1456442602 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/780/large1024/arduino_2094-03.jpg?1456442602 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_2094-03.jpg" alt="arduino_2094-03.jpg">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>To get the large J-Link cable do <a href="https://www.adafruit.com/products/1675">the 'classic' 2x5 SWD cable connector</a></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30781">
+              <img class="30781-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/781/medium260/arduino_2094-01.jpg?1456442632 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/781/medium640/arduino_2094-01.jpg?1456442632 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/781/medium800/arduino_2094-01.jpg?1456442632 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/781/large1024/arduino_2094-01.jpg?1456442632 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_2094-01.jpg" alt="arduino_2094-01.jpg">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>If you are debugging a board that doesn't even have an SWD connector on it, you may need to solder to the SWD pads</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30782">
+              <img class="30782-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/782/medium260/arduino_adafruit_products_swd.jpg?1456442748 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/782/medium640/arduino_adafruit_products_swd.jpg?1456442748 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/782/medium800/arduino_adafruit_products_swd.jpg?1456442748 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/782/large1024/arduino_adafruit_products_swd.jpg?1456442748 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_adafruit_products_swd.jpg" alt="arduino_adafruit_products_swd.jpg">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<p>You need to connect the following to the J-Link:</p>
+<ul>
+<li>
+<strong>Vref / Vtarget</strong> - Logic voltage of the chip, in this case 3.3V</li>
+<li>
+<strong>GND</strong> to common ground</li>
+<li>
+<strong>SWDIO </strong>to <strong>SWDIO</strong>
+</li>
+<li>
+<strong>SWCLK</strong> to <strong>SWCLK</strong>
+</li>
+</ul>
+<p>I haven't found I need to connect the chip's RESET line</p>
+
+      </div>
+      <div class="row-fluid build-text">
+        
+<h1>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#identify-interface" class="anchor-link"><span class="fa fa-link"></span></a><span id="identify-interface" class="anchor-link-target"></span>Identify Interface</h1>
+<p>OK now you have your debugger plugged in, its good to check that it works, select <strong>Device Programming</strong></p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30783">
+              <img class="30783-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/783/medium260/arduino_8devprog.png?1456442893 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/783/medium640/arduino_8devprog.png?1456442893 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/783/medium800/arduino_8devprog.png?1456442893 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/783/large1024/arduino_8devprog.png?1456442893 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_8devprog.png" alt="arduino_8devprog.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Under <strong>Tool</strong> make sure you can select <strong>EDBG</strong> or <strong>J-Link</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30784">
+              <img class="30784-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/784/medium260/arduino_9edbg.png?1456442929 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/784/medium640/arduino_9edbg.png?1456442929 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/784/medium800/arduino_9edbg.png?1456442929 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/784/large1024/arduino_9edbg.png?1456442929 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_9edbg.png" alt="arduino_9edbg.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30785">
+              <img class="30785-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/785/medium260/arduino_jlinkdev.png?1456442979 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/785/medium640/arduino_jlinkdev.png?1456442979 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/785/medium800/arduino_jlinkdev.png?1456442979 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/785/large1024/arduino_jlinkdev.png?1456442979 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_jlinkdev.png" alt="arduino_jlinkdev.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<p>Select <strong>ATSAMD21G18A</strong> as the device, <strong>SWD</strong> as the interface and hit <strong>Apply</strong></p>
+<p>You can then <strong>Read</strong> the Device Signature. Make sure this all works before you continue!</p>
+<p>If you are asked to update the J-Link or EDBG firmware, its OK to do so now.</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30786">
+              <img class="30786-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/786/medium260/arduino_11done.png?1456443069 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/786/medium640/arduino_11done.png?1456443069 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/786/medium800/arduino_11done.png?1456443069 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/786/large1024/arduino_11done.png?1456443069 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_11done.png" alt="arduino_11done.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<h1>
+<a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#build-and-start-debugging" class="anchor-link"><span class="fa fa-link"></span></a><span id="build-and-start-debugging" class="anchor-link-target"></span>Build &amp; Start Debugging</h1>
+<p>OK close out the modal programming window, we dont need it for now. <strong>Build </strong>the program</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30787">
+              <img class="30787-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/787/medium260/arduino_13build.png?1456443202 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/787/medium640/arduino_13build.png?1456443202 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/787/medium800/arduino_13build.png?1456443202 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/787/large1024/arduino_13build.png?1456443202 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_13build.png" alt="arduino_13build.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Add a <strong>Break</strong> by clicking on the first <strong>DigitalWrite</strong> function call, you'll see a red dot</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30788">
+              <img class="30788-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/788/medium260/arduino_addbreak.png?1456443232 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/788/medium640/arduino_addbreak.png?1456443232 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/788/medium800/arduino_addbreak.png?1456443232 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/788/large1024/arduino_addbreak.png?1456443232 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_addbreak.png" alt="arduino_addbreak.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Now run <strong>Start Debugging and Break</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30789">
+              <img class="30789-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/789/medium260/arduino_startdebug.png?1456443289 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/789/medium640/arduino_startdebug.png?1456443289 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/789/medium800/arduino_startdebug.png?1456443289 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/789/large1024/arduino_startdebug.png?1456443289 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_startdebug.png" alt="arduino_startdebug.png">
+
+            <span class="image-expand" style="display: none;"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-alert alert-danger">
+        <div class="alert">
+          <i class="fa fa-exclamation-circle"></i>
+          Note that by uploading a debug sketch you will blow away the bootloader on your Arduino Zero or Feather M0, see the next section for re-loading it!
+        </div>
+      </div>
+      <div class="row-fluid build-text">
+        <p>You'll get prompted to select a debugging tool</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30790">
+              <img class="30790-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/790/medium260/arduino_selecttool.png?1456443337 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/790/medium640/arduino_selecttool.png?1456443337 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/790/medium800/arduino_selecttool.png?1456443337 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/790/large1024/arduino_selecttool.png?1456443337 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_selecttool.png" alt="arduino_selecttool.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Go thru what you did before, selecting the programmer and processor</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30791">
+              <img class="30791-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/791/medium260/arduino_selectedbg.png?1456443359 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/791/medium640/arduino_selectedbg.png?1456443359 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/791/medium800/arduino_selectedbg.png?1456443359 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/791/large1024/arduino_selectedbg.png?1456443359 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_selectedbg.png" alt="arduino_selectedbg.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<p>Once done go back and re-run <strong>Start Debugging</strong></p>
+<p>You'll end up in a strange code, labeled <strong>int main(void) {</strong> this is the main entry point to the sketch. Normally this part is never seen, it's what sets up the Arduino before you get to the <strong>setup</strong> section of the sketch!</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30792">
+              <img class="30792-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/792/medium260/arduino_entry.png?1456443391 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/792/medium640/arduino_entry.png?1456443391 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/792/medium800/arduino_entry.png?1456443391 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/792/large1024/arduino_entry.png?1456443391 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_entry.png" alt="arduino_entry.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>Select <strong>Continue</strong> to skip ahead to your stopping point</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30793">
+              <img class="30793-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/793/medium260/arduino_continue.png?1456443469 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/793/medium640/arduino_continue.png?1456443469 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/793/medium800/arduino_continue.png?1456443469 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/793/large1024/arduino_continue.png?1456443469 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_continue.png" alt="arduino_continue.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<p>Now you'll end up at that <strong>DigitalWrite</strong> with the red dot. Note that you stop right <em>before</em> this gets run.</p>
+<p>Now select <strong>Step Over</strong> to execute that line. Since you're in step-debugging mode you'll have to <strong>Step</strong> each function call you want to run. If you just want to continue running the code without any delays or steps, click on <strong>Continue</strong> like you did before</p>
+
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30794">
+              <img class="30794-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/794/medium260/arduino_stepover.png?1456443515 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/794/medium640/arduino_stepover.png?1456443515 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/794/medium800/arduino_stepover.png?1456443515 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/794/large1024/arduino_stepover.png?1456443515 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_stepover.png" alt="arduino_stepover.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>You can also dig deeper into a function with <strong>Step Into</strong></p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30795">
+              <img class="30795-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/795/medium260/arduino_stepinto.png?1456443593 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/795/medium640/arduino_stepinto.png?1456443593 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/795/medium800/arduino_stepinto.png?1456443593 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/795/large1024/arduino_stepinto.png?1456443593 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_stepinto.png" alt="arduino_stepinto.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        <p>This will let you go <em>into</em> the function call, to see what goes on inside. You can then continue to step over, step in or step out (complete the function)</p>
+      </div>
+        <div class="row-fluid build-image">
+          <a href="https://learn.adafruit.com/assets/30796">
+              <img class="30796-asset img-responsive" srcset="https://cdn-learn.adafruit.com/assets/assets/000/030/796/medium260/arduino_steppedin.png?1456443635 260w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/796/medium640/arduino_steppedin.png?1456443635 640w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/796/medium800/arduino_steppedin.png?1456443635 800w,
+               https://cdn-learn.adafruit.com/assets/assets/000/030/796/large1024/arduino_steppedin.png?1456443635 1024w" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, (max-width: 1365px) 47vw, 750px" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/arduino_steppedin.png" alt="arduino_steppedin.png">
+
+            <span class="image-expand"><i class="fa fa-search-plus"></i></span>
+</a>        </div>
+      <div class="row-fluid build-text">
+        
+<p>You can also see variable names below, and the entirety of memory. Since this is just a basic tutorial we wont go into the vast depths of debugging, stack traces, and memory twiddling!</p>
+<p><a href="http://www.atmel.com/webdoc/atmelstudio/atmelstudio.Debug.html">There's a ton more details on the Atmel Studio documentation page</a></p>
+
+      </div>
+
+								<div class="page-navigation">
+										<a class="previous-page" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/install-software">
+											<i class="fa fa-chevron-left"></i>INSTALL SOFTWARE
+</a>										<a class="next-page" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/restoring-bootloader">
+											RESTORING BOOTLOADER<i class="fa fa-chevron-right"></i>
+</a>									<div class="clear"></div>
+								</div>
+								<span class="page-last-updated">Last updated on 2016-02-25 at 06.42.07 PM</span>
+									<span class="page-last-updated">Published on 2016-02-25 at 07.11.01 PM</span>
+							</div>
+					</div>
+				</article>
+				<div class="col-lg-two-and-half col-md-3 hidden-sm hidden-xs">
+  <header class="sidebar-right">
+    <div class="sidebar-right-content">
+      
+        <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/1369">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/1369-05.jpg" alt="1369-05.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">SEGGER J-Link EDU - JTAG/SWD Debugger</div>
+      <span class="product-price">$69.95</span>
+        <a id="1369-product" class="product-buy" data-pid="1369" data-qty="1" data-name="SEGGER J-Link EDU - JTAG/SWD Debugger" href="https://www.adafruit.com/product/1369">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2209">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2209-00.jpg" alt="2209-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">SEGGER J-Link BASE - JTAG/SWD Debugger</div>
+      <span class="product-price">$399.95</span>
+        <a id="2209-product" class="product-buy" data-pid="2209" data-qty="1" data-name="SEGGER J-Link BASE - JTAG/SWD Debugger" href="https://www.adafruit.com/product/2209">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2843">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2843-00.jpg" alt="2843-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">Arduino Zero - 32 bit Cortex M0 Arduino with Debug Interface</div>
+      <span class="product-price">$54.95</span>
+        <a id="2843-product" class="notify product-buy" href="https://www.adafruit.com/product/2843">OUT OF STOCK (NOTIFY ME)</a>
+    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2417">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2417-06.jpg" alt="2417-06.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">M0 Pro - 32 bit Cortex M0 with Debug Interface</div>
+      <span class="product-price">$39.95</span>
+        <a id="2417-product" class="product-buy" data-pid="2417" data-qty="1" data-name="M0 Pro - 32 bit Cortex M0 with Debug Interface" href="https://www.adafruit.com/product/2417">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2772">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2772-01.jpg" alt="2772-01.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">Adafruit Feather M0 Basic Proto - ATSAMD21 Cortex M0</div>
+      <span class="product-price">$19.95</span>
+        <a id="2772-product" class="product-buy" data-pid="2772" data-qty="1" data-name="Adafruit Feather M0 Basic Proto - ATSAMD21 Cortex M0" href="https://www.adafruit.com/product/2772">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2796">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2796-01.jpg" alt="2796-01.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">Adafruit Feather M0 Adalogger</div>
+      <span class="product-price">$21.95</span>
+        <a id="2796-product" class="product-buy" data-pid="2796" data-qty="1" data-name="Adafruit Feather M0 Adalogger" href="https://www.adafruit.com/product/2796">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2995">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2995-01.jpg" alt="2995-01.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">Adafruit Feather M0 Bluefruit LE</div>
+      <span class="product-price">$29.95</span>
+        <a id="2995-product" class="notify product-buy" href="https://www.adafruit.com/product/2995">OUT OF STOCK (NOTIFY ME)</a>
+    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/3010">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/3010-00.jpg" alt="3010-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500</div>
+      <span class="product-price">$34.95</span>
+        <a id="3010-product" class="product-buy" data-pid="3010" data-qty="1" data-name="Adafruit Feather M0 WiFi - ATSAMD21 + ATWINC1500" href="https://www.adafruit.com/product/3010">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2094">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2094-00.jpg" alt="2094-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">JTAG (2x10 2.54mm) to SWD (2x5 1.27mm) Cable Adapter Board</div>
+      <span class="product-price">$4.95</span>
+        <a id="2094-product" class="product-buy" data-pid="2094" data-qty="1" data-name="JTAG (2x10 2.54mm) to SWD (2x5 1.27mm) Cable Adapter Board" href="https://www.adafruit.com/product/2094">
+          Add To Cart
+</a>    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/1675">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/1675-00.jpg" alt="1675-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">10-pin 2x5 Socket-Socket 1.27mm IDC (SWD) Cable - 150mm long</div>
+      <span class="product-price">$2.95</span>
+        <a id="1675-product" class="notify product-buy" href="https://www.adafruit.com/product/1675">OUT OF STOCK (NOTIFY ME)</a>
+    </div>
+  </div>
+  <div class="product-wrapper">
+    <div class="product-image">
+      <a href="https://www.adafruit.com/product/2743">
+            <img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/2743-00.jpg" alt="2743-00.jpg" height="233" class="img-responsive">
+</a>    </div>
+    <div class="product-details">
+      <div class="product-title">SWD (2x5 1.27mm) Cable Breakout Board</div>
+      <span class="product-price">$1.95</span>
+        <a id="2743-product" class="product-buy" data-pid="2743" data-qty="1" data-name="SWD (2x5 1.27mm) Cable Breakout Board" href="https://www.adafruit.com/product/2743">
+          Add To Cart
+</a>    </div>
+  </div>
+
+        <div class="add-all-to-cart-container">
+          <a class="add-all-to-cart" href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#" data-multi-add="{&quot;1369&quot;:1,&quot;2094&quot;:1,&quot;2209&quot;:1,&quot;2417&quot;:1,&quot;2743&quot;:1,&quot;2772&quot;:1,&quot;2796&quot;:1,&quot;3010&quot;:1}">ADD ALL TO CART</a>
+          <div class="add-all-to-cart-progress"></div>
+        </div>
+      <div class="clear"></div>
+    </div>
+  </header>
+</div>
+
+			</div>
+		</div>
+			<div class="related-guides-wrapper container">
+  <div class="row">
+    <div class="related-guides-title col-lg-12">
+      <h2>
+        RELATED GUIDES
+      </h2>
+    </div>
+  </div>
+  <div class="related-guides-content row">
+    	<div class="1225-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="guide-block" style="visibility: visible;">
+            <div class="title-bar">
+                <div class="title">
+                  <h5>
+                      <a href="https://learn.adafruit.com/lightship-led-animation-over-wifi">
+                          LIGHTSHIP: LED Animation over WiFi<br>
+</a>                  </h5>
+                  <div class="tagline">
+                    <a href="https://learn.adafruit.com/lightship-led-animation-over-wifi">
+                    Any sufficiently advanced technology is indistinguishable from magic.
+</a>                	</div>
+									    <div class="author">by
+      <a href="https://learn.adafruit.com/users/pburgess">
+          <span class="name">Phillip Burgess</span>
+</a>    </div>
+
+                </div>
+            </div>
+						<a href="https://learn.adafruit.com/lightship-led-animation-over-wifi">
+								<video class="img img-responsive guide-video" preload="auto" muted="muted" loop="loop" autoplay="autoplay" poster="https://cdn-learn.adafruit.com/guides/images/000/001/225/medium640thumb/opc-thumbnail.gif?1454222268">
+									<source src="https://cdn-learn.adafruit.com/guides/images/000/001/225/medium640mp4/opc-thumbnail.mp4?1454222268">
+									<source src="https://cdn-learn.adafruit.com/guides/images/000/001/225/medium640webm/opc-thumbnail.webm?1454222268" type="video/webm; codecs=vp8,vorbis">
+									Your browser does not support the video tag.
+								</video>
+
+</a>            <div class="details">
+
+                <div class="description">
+                    <a href="https://learn.adafruit.com/lightship-led-animation-over-wifi">
+                        Use the Adafruit Feather M0 WiFi board and DotStar LEDs to create mobile luminous art pieces — one or many — synchronized from your computer via wireless networking.
+</a>                </div>
+
+            </div>
+
+
+        </div>
+	</div>
+	<div class="1224-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="guide-block">
+            <div class="title-bar">
+                <div class="title">
+                  <h5>
+                      <a href="https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports">
+                          Using ATSAMD21 SERCOM for more SPI, I2C and Serial ports<br>
+</a>                  </h5>
+                  <div class="tagline">
+                    <a href="https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports">
+                    Get more high speed serial commports without bitbanging
+</a>                	</div>
+									    <div class="author">by
+      <a href="https://learn.adafruit.com/users/adafruit2">
+          <span class="name">lady ada</span>
+</a>    </div>
+
+                </div>
+            </div>
+						<a href="https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports">
+								<img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/atsamd.jpg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/001/224/medium310/atsamd.jpg?1453661212" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/001/224/medium800/atsamd.jpg?1453661212">
+
+</a>            <div class="details">
+
+                <div class="description">
+                    <a href="https://learn.adafruit.com/using-atsamd21-sercom-to-add-more-spi-i2c-serial-ports">
+                        When we first checked out the ATSAMD21 chip (the processor used in the Arduino Zero and Adafruit Feather M0), we were very happy to see that the chip has 6 "SERCOM"s, a.k.a SERial COMmunication modules. Each one of these modules can be used for I2C, SPI or Serial. That means you can have 3 UART's &amp; 3 SPI's, or maybe 2 SPI's and 4 I2C's. Basically, you have a ton of options for adding more hardware support for the most common 3 chip-to-chip protocols.
+</a>                </div>
+
+            </div>
+
+
+        </div>
+	</div>
+	<div class="1196-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="guide-block">
+            <div class="title-bar">
+                <div class="title">
+                  <h5>
+                      <a href="https://learn.adafruit.com/festive-feather-holiday-lights">
+                          Festive Feather Holiday Lights<br>
+</a>                  </h5>
+                  <div class="tagline">
+                    <a href="https://learn.adafruit.com/festive-feather-holiday-lights">
+                    Create festive holiday lights powered by Adafruit's feather boards!
+</a>                	</div>
+									    <div class="author">by
+      <a href="https://learn.adafruit.com/users/tdicola">
+          <span class="name">Tony DiCola</span>
+</a>    </div>
+
+                </div>
+            </div>
+						<a href="https://learn.adafruit.com/festive-feather-holiday-lights">
+								<img src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/IMG_4394.jpg" class="img-responsive guide-image" data-standard-image="https://cdn-learn.adafruit.com/guides/images/000/001/196/medium310/IMG_4394.jpg?1450803394" data-mobile-image="https://cdn-learn.adafruit.com/guides/images/000/001/196/medium800/IMG_4394.jpg?1450803394">
+
+</a>            <div class="details">
+
+                <div class="description">
+                    <a href="https://learn.adafruit.com/festive-feather-holiday-lights">
+                        Use the 32u4 Feather, a light sensor, and a proximity sensor to make holiday lights that match the color of nearby objects.  Or build lights you can control from a smartphone or tablet with the Bluefruit LE Feather and Bluetooth Low Energy!
+</a>                </div>
+
+            </div>
+
+
+        </div>
+	</div>
+	<div class="951-guide masonry-block col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <div class="guide-block">
+            <div class="title-bar">
+                <div class="title">
+                  <h5>
+                      <a href="https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb">
+                          Reverse Engineering a Bluetooth Low Energy Light Bulb<br>
+</a>                  </h5>
+                  <div class="tagline">
+                    <a href="https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb">
+                    Control a Bluetooth Low Energy device with your own code!
+</a>                	</div>
+									    <div class="author">by
+      <a href="https://learn.adafruit.com/users/tdicola">
+          <span class="name">Tony DiCola</span>
+</a>    </div>
+
+                </div>
+            </div>
+						<a href="https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb">
+								<video class="img img-responsive guide-video" preload="auto" muted="muted" loop="loop" autoplay="autoplay" poster="https://cdn-learn.adafruit.com/guides/images/000/000/951/medium640thumb/bulb4.gif?1448380908">
+									<source src="https://cdn-learn.adafruit.com/guides/images/000/000/951/medium640mp4/bulb4.mp4?1448380908">
+									<source src="https://cdn-learn.adafruit.com/guides/images/000/000/951/medium640webm/bulb4.webm?1448380908" type="video/webm; codecs=vp8,vorbis">
+									Your browser does not support the video tag.
+								</video>
+
+</a>            <div class="details">
+
+                <div class="description">
+                    <a href="https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb">
+                        Learn how to sniff Bluetooth low energy traffic using the Bluefruit LE sniffer and reverse engineer a simple Bluetooth low energy device like a light bulb.  Then control the device yourself using a Raspberry Pi and Bluetooth low energy USB adapter!
+</a>                </div>
+
+            </div>
+
+
+        </div>
+	</div>
+
+  </div>
+</div>
+
+		<div class="footer-spacer"></div>
+</div>
+
+
+
+  <div class="modal fade" id="notify-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">  
+        <div class="modal-header">
+          <a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#" class="close" data-dismiss="modal">×</a>
+          <h5>OUT OF STOCK NOTIFICATION</h5>
+        </div>
+        <div class="modal-body">
+          <p class="notify-modal-form-header"></p>
+          <div class="notify-modal-products"></div>
+          <form id="notify-modal-form" name="back_in_stock_notification">
+            <p class="notify-modal-form-notice"></p>
+            <div class="notify-modal-break"></div>
+            <div class="form-group">
+              <label class="inputLabel" for="name">YOUR NAME</label>
+              <input type="text" size="25" maxlength="64" name="name" value="">
+            </div>
+
+            <div class="form-group">
+              <label class="inputLabel" for="email">YOUR EMAIL</label>
+              <input type="email" size="25" maxlength="96" name="email" value="">
+            </div>
+          
+            <input type="text" name="daigo" style="display:none;">
+            <input type="hidden" name="notify_me" value="true">
+          </form>
+          <div id="notify-modal-success" style="display:none">
+            <p>You have been successfully subscribed to the Notification List for this product and will therefore receive an e-mail from us when it is back in stock!</p>
+            <p>For security reasons, an e-mail has been sent to you acknowledging your subscription. Please remember that this subscription will not result in you receiving any e-mail from us about anything other than the restocking of this item.</p>
+            <p>If, for any reason, you would like to unsubscribe from the Notification List for this product you will find details of how to do so in the e-mail that has just been sent to you!</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#" id="close-notify" style="display: none" data-dismiss="modal" data-target="#notify-modal">CLOSE</a>
+          <a href="https://learn.adafruit.com/proper-step-debugging-atsamd21-arduino-zero-m0/lets-go#" id="submit-notify" rel="nofollow" class="blue-button">NOTIFY ME</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+        <footer id="adafruit-footer">
+    <div id="footer-content" class="container">
+      <div class="row">
+        <div class=" col-lg-6 col-md-6 col-sm-4 col-xs-12">
+          <nav>
+            <ul>
+              <li><a href="https://www.adafruit.com/contact_us">CONTACT</a></li>
+              <li><a href="https://www.adafruit.com/support">SUPPORT</a>
+              </li><li><a href="https://www.adafruit.com/distributors">DISTRIBUTORS</a></li>
+              <li><a href="https://www.adafruit.com/educators">EDUCATORS</a></li>
+              <li><a href="https://www.adafruit.com/jobs">JOBS</a></li>
+              <li><a href="https://www.adafruit.com/faq">FAQ</a></li>
+              <li><a href="https://www.adafruit.com/shippinginfo/">SHIPPING &amp; RETURNS</a></li>
+              <li><a href="https://www.adafruit.com/terms_of_service/">TERMS OF SERVICE</a></li>
+              <li><a href="https://www.adafruit.com/privacy">PRIVACY &amp; LEGAL</a></li>
+              <li><a href="https://www.adafruit.com/about">ABOUT US</a></li>
+            </ul>
+          </nav>
+          <div id="footer-copyright">
+            <a href="http://nytm.org/made-in-nyc/">ENGINEERED IN NYC</a> <span>Adafruit&nbsp;®</span>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-8 hidden-xs">
+          <div id="footer-quote" class="long-quote">
+            
+"I never am really satisfied that I understand anything; because, understand it well as I may, my comprehension can only be an infinitesimal fraction of all I want to understand"
+            <span class="quote-author">- <a href="http://www.mookychick.co.uk/feminism-politics/feminist-icons/ada-lovelace.php">Ada Lovelace</a>
+</span>
+          </div>
+
+        </div>
+        <div id="footer-seals">
+          <img class="img-responsive" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/seals_2x.jpg" alt="Seals 2x">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    </div>
+  </div>
+
+  <script>
+    window.rails_env = 'production';
+  </script>
+
+      <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-7723544-1', 'auto');  // Replace with your property ID.
+    ga('require', 'ec');
+    ga('send', 'pageview');
+
+    </script>
+    <!-- End Google Analytics -->
+
+      <!-- Google Code for Remarketing Tag -->
+      <!--------------------------------------------------
+      Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+      --------------------------------------------------->
+      <script type="text/javascript">
+      /* <![CDATA[ */
+      var google_conversion_id = 1014834932;
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
+      /* ]]> */
+      </script>
+      <script type="text/javascript" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/conversion.js.descarga">
+      </script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe>
+      <noscript>
+      &lt;div style="display:inline;"&gt;
+      &lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1014834932/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+      &lt;/div&gt;
+      </noscript>
+  <script src="./Let&#39;s go! _ Proper Debugging of ATSAMD21 Processors _ Adafruit Learning System_files/application-93b38737c03a61ad60beb97a3ffbfcb5aeacf3194a53cd7ae3c02e38239948aa.js.descarga"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "url": "https://learn.adafruit.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://learn.adafruit.com/search?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+  </script>
+
+
+</body></html>
